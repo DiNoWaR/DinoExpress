@@ -13,6 +13,14 @@
 
     <artifactId>webmodule</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>ru.vasilyev</groupId>
+            <artifactId>datamodule</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
+
     <build>
         <finalName>dinoexpress</finalName>
     </build>

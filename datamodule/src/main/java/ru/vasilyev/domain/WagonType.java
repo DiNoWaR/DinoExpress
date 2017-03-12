@@ -7,10 +7,10 @@ import lombok.Setter;
 @Getter
 @Setter
 @EqualsAndHashCode(callSuper = false)
-public class WagonClass extends BaseObject {
+public class WagonType extends BaseObject {
 
     private String classCode;
-    private String Description;
+    private String description;
     private double classCoefficient;
 
 }

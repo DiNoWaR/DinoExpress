@@ -1,0 +1,12 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="ru.vasilyev.mappers.WagonTypeMapper">
+
+    <insert id="insertEntity" parameterType="wagonType">
+        INSERT INTO WagonClass (ClassCode, Description, ClassCoefficient)
+        VALUES (#{classCode}, #{description}, #{classCoefficient});
+    </insert>
+
+</mapper>
