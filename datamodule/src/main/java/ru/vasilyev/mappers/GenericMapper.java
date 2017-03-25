@@ -1,14 +1,17 @@
 package ru.vasilyev.mappers;
 
 
+import java.util.Collection;
 import java.util.List;
 
 public interface GenericMapper<T> {
 
     void insertEntity(T entity);
 
-    List<T> getAll();
+    void insertCollectionOfEntity(Collection<T> entities);
 
-    void deleteAll();
+    List<T> getAllEntities();
+
+    void deleteAllEntities();
 
 }

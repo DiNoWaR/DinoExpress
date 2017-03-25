@@ -5,7 +5,7 @@
 <mapper namespace="ru.vasilyev.mappers.WagonTypeMapper">
 
     <insert id="insertEntity" parameterType="wagonType">
-        INSERT INTO WagonClass (ClassCode, Description, ClassCoefficient)
+        INSERT INTO WagonType (ClassCode, Description, ClassCoefficient)
         VALUES (#{classCode}, #{description}, #{classCoefficient});
     </insert>
 

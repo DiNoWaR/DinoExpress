@@ -11,7 +11,7 @@
     <environments default="mySqlDevelopment">
         <environment id="mySqlDevelopment">
             <transactionManager type="MANAGED">
-                <property name="closeConnection" value="false"/>
+                <property name="closeConnection" value="true"/>
             </transactionManager>
 
             <dataSource type="JNDI">

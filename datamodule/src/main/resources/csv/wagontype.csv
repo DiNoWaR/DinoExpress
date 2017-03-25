@@ -1,0 +1,8 @@
+ClassCode,Description,WagonTypeCoefficient
+HE1,First class for highspeed trains.Comfortable seats.,6
+HE2,Bussiness class for highspeed trains.All seats are near table,3.5
+HC2,Economic class for highspeed trains.,2.5
+BE1,Bussiness coupe wagon for basic trains,8.5
+BE2,Coupe wagon for basic train,4
+BC2,Platzcart wagon for basic train,1
+WRS,Wagon restaurant,0

@@ -1,0 +1,4 @@
+StationFrom,StationTo,DepartureDate,ArrivalDate,Train,Route,Sequence
+Select S.id FROM Station S where S.name = 'Nizniy Novgorod',Select S.id FROM Station S where S.name = 'Moscow',2017-08-01 07:15:00,2017-08-01 09:30:00,select T.Id from Train T where T.Name = 'Sapsan S1',select R.id from Route R where R.RouteCode = 'SP 760',1
+Select S.id FROM Station S where S.name = 'Moscow',Select S.id FROM Station S where S.name = 'Saint-Petersburg',2017-08-01 09:45:00,2017-08-01 13:45:00,select T.Id from Train T where T.Name = 'Sapsan S1',select R.id from Route R where R.RouteCode = 'SP 760',2
+Select S.id FROM Station S where S.name = 'Moscow',Select S.id FROM Station S where S.name = 'Saint-Petersburg',2017-08-01 19:30:00,2017-08-01 23:40:00,select T.Id from Train T where T.Name = 'Sapsan S2',select R.id from Route R where R.RouteCode = 'SP 715',1
