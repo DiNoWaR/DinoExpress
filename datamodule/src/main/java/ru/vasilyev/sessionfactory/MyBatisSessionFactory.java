@@ -1,4 +1,4 @@
-package ru.vasilyev.ejb;
+package ru.vasilyev.sessionfactory;
 
 import lombok.Getter;
 import org.apache.ibatis.io.Resources;

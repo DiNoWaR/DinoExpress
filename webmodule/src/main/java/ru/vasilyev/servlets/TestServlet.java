@@ -1,10 +1,9 @@
 package ru.vasilyev.servlets;
 
 
-import org.apache.ibatis.session.SqlSession;
+import ru.vasilyev.domain.Station;
 import ru.vasilyev.domain.WagonType;
-import ru.vasilyev.ejb.MyBatisSessionFactory;
-import ru.vasilyev.mappers.WagonTypeMapper;
+import ru.vasilyev.service.TestService;
 
 import javax.ejb.EJB;
 import javax.servlet.RequestDispatcher;
@@ -14,32 +13,28 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.List;
 
 public class TestServlet extends HttpServlet {
 
     @EJB
-    private MyBatisSessionFactory myBatisSessionFactory;
+    private TestService testService;
 
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-
-        SqlSession session = myBatisSessionFactory.getSqlSessionFactory().openSession();
-
-        WagonTypeMapper wagonTypeMapper = session.getMapper(WagonTypeMapper.class);
-
-        WagonType wagonType = new WagonType();
-        wagonType.setClassCode("2c");
-        wagonType.setDescription("Nischebrody");
-        wagonType.setClassCoefficient(1.1);
-
-        wagonTypeMapper.insertEntity(wagonType);
-
         HttpSession httpSession = request.getSession();
+
+        List<WagonType> wagonTypes = testService.getAllWagonTypes();
+        List<Station> stations = testService.getAllStations();
+
         String greetings = "Hello Dino";
 
         httpSession.setAttribute("greetings", greetings);
+        httpSession.setAttribute("wagonTypes", wagonTypes);
+        httpSession.setAttribute("stations", stations);
+
         String indexJsp = "/jsp/index.jsp";
 
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(indexJsp);

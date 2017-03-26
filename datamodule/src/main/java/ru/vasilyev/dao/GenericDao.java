@@ -1,10 +1,10 @@
-package ru.vasilyev.mappers;
+package ru.vasilyev.dao;
 
 
 import java.util.Collection;
 import java.util.List;
 
-public interface GenericMapper<T> {
+public interface GenericDao<T> {
 
     void insertEntity(T entity);
 

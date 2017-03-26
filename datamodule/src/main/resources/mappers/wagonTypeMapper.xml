@@ -9,4 +9,20 @@
         VALUES (#{classCode}, #{description}, #{classCoefficient});
     </insert>
 
+    <select id="getAllEntities" resultMap="wagonTypesMap">
+        SELECT
+            WT.Id,
+            WT.ClassCode,
+            WT.Description,
+            WT.WagonTypeCoefficient
+        FROM dinoexpress.WagonType WT;
+    </select>
+
+    <resultMap type="wagonType" id="wagonTypesMap">
+        <id column="id" property="id"/>
+        <result column="ClassCode" property="classCode"/>
+        <result column="Description" property="description"/>
+        <result column="ClassCoefficient" property="classCoefficient"/>
+    </resultMap>
+
 </mapper>
