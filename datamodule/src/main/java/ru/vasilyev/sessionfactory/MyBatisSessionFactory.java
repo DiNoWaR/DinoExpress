@@ -20,7 +20,7 @@ public class MyBatisSessionFactory {
 
     @PostConstruct
     public void init() throws IOException {
-        Reader reader = Resources.getResourceAsReader("config/mybatis-config.xml");
+        Reader reader = Resources.getResourceAsReader("mybatisconfig/mybatis-config.xml");
         sqlSessionFactory = new SqlSessionFactoryBuilder().build(reader);
     }
 }

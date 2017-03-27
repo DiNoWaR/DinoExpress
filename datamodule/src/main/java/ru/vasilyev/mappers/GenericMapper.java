@@ -4,6 +4,9 @@ package ru.vasilyev.mappers;
 import java.util.Collection;
 import java.util.List;
 
+/**
+ * Common mapper with standard C.R.U.D. methods
+ */
 public interface GenericMapper<T> {
 
     void insertEntity(T entity);

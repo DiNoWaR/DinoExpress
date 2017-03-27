@@ -1,3 +1,4 @@
+-- -----------------------------------------------------
 -- Schema DiNoExpress
 -- -----------------------------------------------------
 DROP SCHEMA IF EXISTS `DiNoExpress` ;
@@ -19,9 +20,10 @@ CREATE TABLE IF NOT EXISTS `DiNoExpress`.`Train` (
   `Manufacturer` VARCHAR(50) NOT NULL,
   `MaxSpeed` INT NOT NULL,
   `IsHighSpeed` TINYINT NOT NULL DEFAULT 0,
-  PRIMARY KEY (`Id`),
-  UNIQUE INDEX `Id_UNIQUE` (`Id` ASC))
+  PRIMARY KEY (`Id`))
 ENGINE = InnoDB;
+
+CREATE UNIQUE INDEX `Id_UNIQUE` ON `DiNoExpress`.`Train` (`Id` ASC);
 
 
 -- -----------------------------------------------------
@@ -33,7 +35,7 @@ CREATE TABLE IF NOT EXISTS `DiNoExpress`.`WagonType` (
   `Id` INT NOT NULL AUTO_INCREMENT,
   `ClassCode` VARCHAR(45) NOT NULL,
   `Description` VARCHAR(200) NOT NULL,
-  `WagonTypeCoefficient` DECIMAL NOT NULL,
+  `WagonTypeCoefficient` DECIMAL(3,2) NOT NULL,
   PRIMARY KEY (`Id`))
 ENGINE = InnoDB;
 
@@ -47,10 +49,8 @@ CREATE TABLE IF NOT EXISTS `DiNoExpress`.`Wagon` (
   `Id` INT NOT NULL AUTO_INCREMENT,
   `WagonNumber` INT NOT NULL,
   `WagonType` INT NULL,
-  `Train` INT NULL,
+  `Train` INT NOT NULL,
   PRIMARY KEY (`Id`),
-  INDEX `fk_Wagon_WagonClass_idx` (`WagonType` ASC),
-  INDEX `fk_Wagon_Train1_idx` (`Train` ASC),
   CONSTRAINT `WagonWagonTypeKey`
     FOREIGN KEY (`WagonType`)
     REFERENCES `DiNoExpress`.`WagonType` (`Id`)
@@ -62,6 +62,10 @@ CREATE TABLE IF NOT EXISTS `DiNoExpress`.`Wagon` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
+
+CREATE INDEX `fk_Wagon_WagonClass_idx` ON `DiNoExpress`.`Wagon` (`WagonType` ASC);
+
+CREATE INDEX `fk_Wagon_Train1_idx` ON `DiNoExpress`.`Wagon` (`Train` ASC);
 
 
 -- -----------------------------------------------------
@@ -88,6 +92,52 @@ CREATE TABLE IF NOT EXISTS `DiNoExpress`.`Route` (
   `RouteCode` VARCHAR(20) NOT NULL,
   PRIMARY KEY (`Id`))
 ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `DiNoExpress`.`MinRoute`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `DiNoExpress`.`MinRoute` ;
+
+CREATE TABLE IF NOT EXISTS `DiNoExpress`.`MinRoute` (
+  `Id` INT NOT NULL AUTO_INCREMENT,
+  `StationFrom` INT NOT NULL,
+  `StationTo` INT NOT NULL,
+  `DepartureDate` DATETIME NOT NULL,
+  `ArrivalDate` DATETIME NOT NULL,
+  `Train` INT NOT NULL,
+  `Route` INT NOT NULL,
+  `Sequence` INT NOT NULL,
+  PRIMARY KEY (`Id`),
+  CONSTRAINT `MinRouteStationFromKey`
+    FOREIGN KEY (`StationFrom`)
+    REFERENCES `DiNoExpress`.`Station` (`Id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `MinRouteStationToKey`
+    FOREIGN KEY (`StationTo`)
+    REFERENCES `DiNoExpress`.`Station` (`Id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `MinRouteTrainKey`
+    FOREIGN KEY (`Train`)
+    REFERENCES `DiNoExpress`.`Train` (`Id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `MinRouteRouteKey`
+    FOREIGN KEY (`Route`)
+    REFERENCES `DiNoExpress`.`Route` (`Id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+CREATE INDEX `StationFrom_idx` ON `DiNoExpress`.`MinRoute` (`StationFrom` ASC);
+
+CREATE INDEX `StationTo_idx` ON `DiNoExpress`.`MinRoute` (`StationTo` ASC);
+
+CREATE INDEX `Train_idx` ON `DiNoExpress`.`MinRoute` (`Train` ASC);
+
+CREATE INDEX `Route_idx` ON `DiNoExpress`.`MinRoute` (`Route` ASC);
 
 
 -- -----------------------------------------------------
@@ -118,7 +168,6 @@ CREATE TABLE IF NOT EXISTS `DiNoExpress`.`Ticket` (
   `User` INT NOT NULL,
   `Price` INT NOT NULL,
   PRIMARY KEY (`Id`),
-  INDEX `User_idx` (`User` ASC),
   CONSTRAINT `TicketUserKey`
     FOREIGN KEY (`User`)
     REFERENCES `DiNoExpress`.`User` (`Id`)
@@ -126,54 +175,7 @@ CREATE TABLE IF NOT EXISTS `DiNoExpress`.`Ticket` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-
--- -----------------------------------------------------
--- Table `DiNoExpress`.`MinRoute`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `DiNoExpress`.`MinRoute` ;
-
-CREATE TABLE IF NOT EXISTS `DiNoExpress`.`MinRoute` (
-  `Id` INT NOT NULL AUTO_INCREMENT,
-  `StationFrom` INT NOT NULL,
-  `StationTo` INT NOT NULL,
-  `DepartureDate` DATETIME NOT NULL,
-  `ArrivalDate` DATETIME NOT NULL,
-  `Train` INT NOT NULL,
-  `Route` INT NOT NULL,
-  `Sequence` INT NOT NULL,
-  `Ticket_Id` INT NULL,
-  PRIMARY KEY (`Id`),
-  INDEX `StationFrom_idx` (`StationFrom` ASC),
-  INDEX `StationTo_idx` (`StationTo` ASC),
-  INDEX `Train_idx` (`Train` ASC),
-  INDEX `Route_idx` (`Route` ASC),
-  INDEX `fk_MinRoute_Ticket1_idx` (`Ticket_Id` ASC),
-  CONSTRAINT `MinRouteStationFromKey`
-    FOREIGN KEY (`StationFrom`)
-    REFERENCES `DiNoExpress`.`Station` (`Id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `MinRouteStationToKey`
-    FOREIGN KEY (`StationTo`)
-    REFERENCES `DiNoExpress`.`Station` (`Id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `MinRouteTrainKey`
-    FOREIGN KEY (`Train`)
-    REFERENCES `DiNoExpress`.`Train` (`Id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `MinRouteRouteKey`
-    FOREIGN KEY (`Route`)
-    REFERENCES `DiNoExpress`.`Route` (`Id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `MinRouteRuketKey`
-    FOREIGN KEY (`Ticket_Id`)
-    REFERENCES `DiNoExpress`.`Ticket` (`Id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+CREATE INDEX `User_idx` ON `DiNoExpress`.`Ticket` (`User` ASC);
 
 
 -- -----------------------------------------------------
@@ -188,10 +190,38 @@ CREATE TABLE IF NOT EXISTS `DiNoExpress`.`Seat` (
   `IsVacant` TINYINT NOT NULL DEFAULT 1,
   `Wagon` INT NOT NULL,
   PRIMARY KEY (`Id`),
-  INDEX `Wagon_idx` (`Wagon` ASC),
   CONSTRAINT `SeatWagonKey`
     FOREIGN KEY (`Wagon`)
     REFERENCES `DiNoExpress`.`Wagon` (`Id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
+
+CREATE INDEX `Wagon_idx` ON `DiNoExpress`.`Seat` (`Wagon` ASC);
+
+
+-- -----------------------------------------------------
+-- Table `DiNoExpress`.`TicketMinRoute`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `DiNoExpress`.`TicketMinRoute` ;
+
+CREATE TABLE IF NOT EXISTS `DiNoExpress`.`TicketMinRoute` (
+  `Id` INT NOT NULL AUTO_INCREMENT,
+  `TicketId` INT NOT NULL,
+  `MinRouteId` INT NOT NULL,
+  PRIMARY KEY (`Id`),
+  CONSTRAINT `TicketMinRouteMinRouteKey`
+    FOREIGN KEY (`MinRouteId`)
+    REFERENCES `DiNoExpress`.`MinRoute` (`Id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `TicketMinRouteTicketKey`
+    FOREIGN KEY (`TicketId`)
+    REFERENCES `DiNoExpress`.`Ticket` (`Id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+CREATE INDEX `TicketMinRouteMinRouteKey_idx` ON `DiNoExpress`.`TicketMinRoute` (`MinRouteId` ASC);
+
+CREATE INDEX `TicketMinRouteTicketKey_idx` ON `DiNoExpress`.`TicketMinRoute` (`TicketId` ASC);

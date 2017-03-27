@@ -1,4 +1,5 @@
-##
+
+## Find routes from station to station for certain date
 SELECT
   src.RouteCode,
   src.srcStation,
@@ -33,7 +34,7 @@ FROM (
          WHERE s2.name = 'Saint-Petersburg') AS dest
 WHERE src.RouteCode = dest.RouteCode;
 
-##
+##Find stations, which certain route passed
 SELECT
   r.RouteCode,
   s1.name AS SourceStation,
@@ -47,7 +48,7 @@ FROM minroute mr
 WHERE r.RouteCode = 'SP 760'
 ORDER BY mr.Sequence;
 
-##
+##Find count of available seats in train, grouped by wagon type
 SELECT
   t.name,
   w.WagonNumber,
@@ -59,18 +60,31 @@ FROM train t
   JOIN wagontype wt ON wt.Id = w.WagonType
 GROUP BY t.Name, w.WagonNumber, wt.ClassCode;
 
+##Find routes, that depart from station on certain time
+SELECT
+  r.RouteCode,
+  s1.name AS SourceStation,
+  s2.name AS DestStation,
+  mr.DepartureDate
+FROM minroute mr
+  JOIN route r ON mr.Route = r.Id
+  JOIN station s1 ON mr.StationFrom = s1.Id
+  JOIN station s2 ON mr.StationTo = s2.Id
+  JOIN train t ON mr.Train = t.Id
+WHERE s1.name = 'moscow'
+AND mr.DepartureDate BETWEEN '2017-07-31 00:00:00' AND '2017-08-02 00:00:00';
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+##Find routes, that arrive to station on certain time
+SELECT
+  r.RouteCode,
+  s1.name AS SourceStation,
+  s2.name AS DestStation,
+  mr.ArrivalDate
+FROM minroute mr
+  JOIN route r ON mr.Route = r.Id
+  JOIN station s1 ON mr.StationFrom = s1.Id
+  JOIN station s2 ON mr.StationTo = s2.Id
+  JOIN train t ON mr.Train = t.Id
+WHERE s2.name = 'moscow'
+AND mr.DepartureDate BETWEEN '2017-07-31 00:00:00' AND '2017-08-02 00:00:00';
 

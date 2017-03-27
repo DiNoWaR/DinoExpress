@@ -20,6 +20,7 @@ public class TestService {
     @EJB
     private StationDao stationDao;
 
+
     public void insertWagonType(WagonType wagonType) {
 
 
