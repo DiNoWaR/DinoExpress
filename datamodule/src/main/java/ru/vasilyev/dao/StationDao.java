@@ -2,7 +2,7 @@ package ru.vasilyev.dao;
 
 
 import org.apache.ibatis.session.SqlSession;
-import ru.vasilyev.domain.Station;
+import ru.vasilyev.model.Station;
 import ru.vasilyev.mappers.StationMapper;
 
 import javax.ejb.Stateless;

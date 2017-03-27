@@ -1,8 +1,8 @@
 package ru.vasilyev.servlets;
 
 
-import ru.vasilyev.domain.Station;
-import ru.vasilyev.domain.WagonType;
+import ru.vasilyev.model.Station;
+import ru.vasilyev.model.WagonType;
 import ru.vasilyev.service.TestService;
 
 import javax.ejb.EJB;

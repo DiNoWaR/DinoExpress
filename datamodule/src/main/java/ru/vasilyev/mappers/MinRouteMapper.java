@@ -1,7 +1,7 @@
 package ru.vasilyev.mappers;
 
 
-import ru.vasilyev.domain.MinRoute;
+import ru.vasilyev.model.MinRoute;
 
 
 public interface MinRouteMapper extends GenericMapper<MinRoute> {

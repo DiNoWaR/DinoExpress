@@ -1,4 +1,4 @@
-package ru.vasilyev.domain;
+package ru.vasilyev.model;
 
 
 public class MinRoute extends BaseObject {

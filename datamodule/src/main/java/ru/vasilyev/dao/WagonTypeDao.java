@@ -2,7 +2,7 @@ package ru.vasilyev.dao;
 
 
 import org.apache.ibatis.session.SqlSession;
-import ru.vasilyev.domain.WagonType;
+import ru.vasilyev.model.WagonType;
 import ru.vasilyev.mappers.WagonTypeMapper;
 
 import javax.ejb.Stateless;

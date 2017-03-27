@@ -1,4 +1,4 @@
-package ru.vasilyev.domain;
+package ru.vasilyev.model;
 
 
 import lombok.Getter;

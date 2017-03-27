@@ -1,7 +1,7 @@
 package ru.vasilyev.mappers;
 
 
-import ru.vasilyev.domain.WagonType;
+import ru.vasilyev.model.WagonType;
 
 public interface WagonTypeMapper extends GenericMapper<WagonType> {
 
