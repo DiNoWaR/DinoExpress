@@ -17,4 +17,14 @@ public class Train extends BaseObject {
     private boolean isHighSpeed;
     private List<MinRoute> minRoutes;
     private List<Wagon> wagons;
+
+    public Train() {
+
+    }
+
+
+    public Train(String name, String manufacturer, int maxSpeed, boolean isHighSpeed) {
+
+    }
+
 }
