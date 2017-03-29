@@ -45,6 +45,7 @@ public class Generator {
         trainDao.insertEntity(train);
     }
 
+    @TransactionAttribute(TransactionAttributeType.REQUIRED)
     public void generateCollectionOfTrains(List<Train> trains) {
         trainDao.insertCollectionOfEntity(trains);
     }
@@ -53,6 +54,31 @@ public class Generator {
     public void generateWagonType(WagonType wagonType) {
         wagonTypeDao.insertEntity(wagonType);
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

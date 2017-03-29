@@ -1,16 +1,16 @@
 package ru.vasilyev.model;
 
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 @Getter
 @Setter
+@AllArgsConstructor
+@NoArgsConstructor
 @EqualsAndHashCode(callSuper = false)
 public class WagonType extends BaseObject {
 
     private String classCode;
     private String description;
-    private double classCoefficient;
+    private double wagonTypeCoefficient;
 
 }

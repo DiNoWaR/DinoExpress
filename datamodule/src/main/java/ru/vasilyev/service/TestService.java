@@ -28,6 +28,10 @@ public class TestService {
 
     }
 
+    public void insertCollectionOfWagonTypes(List<WagonType> wagonTypes) {
+        wagonTypeDao.insertCollectionOfEntity(wagonTypes);
+    }
+
 
     public List<WagonType> getAllWagonTypes() {
         return wagonTypeDao.getAllEntities();

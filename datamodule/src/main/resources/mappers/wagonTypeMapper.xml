@@ -5,9 +5,19 @@
 <mapper namespace="ru.vasilyev.mappers.WagonTypeMapper">
 
     <insert id="insertEntity" parameterType="wagonType">
-        INSERT INTO WagonType (ClassCode, Description, ClassCoefficient)
-        VALUES (#{classCode}, #{description}, #{classCoefficient});
+        INSERT INTO WagonType (ClassCode, Description, WagonTypeCoefficient)
+        VALUES (#{classCode}, #{description}, #{wagonTypeCoefficient});
     </insert>
+
+    <insert id="insertCollectionOfEntity">
+
+        INSERT INTO WagonType (ClassCode, Description, WagonTypeCoefficient) VALUES
+
+        <foreach item="element" collection="list" separator=",">
+            (#{element.classCode}, #{element.description}, #{element.wagonTypeCoefficient})
+        </foreach>
+    </insert>
+
 
     <select id="getAllEntities" resultMap="wagonTypesMap">
         SELECT
@@ -18,11 +28,12 @@
         FROM dinoexpress.WagonType WT;
     </select>
 
+
     <resultMap type="wagonType" id="wagonTypesMap">
         <id column="id" property="id"/>
         <result column="ClassCode" property="classCode"/>
         <result column="Description" property="description"/>
-        <result column="ClassCoefficient" property="classCoefficient"/>
+        <result column="WagonTypeCoefficient" property="wagonTypeCoefficient"/>
     </resultMap>
 
 </mapper>

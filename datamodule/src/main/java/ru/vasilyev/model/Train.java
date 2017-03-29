@@ -1,13 +1,13 @@
 package ru.vasilyev.model;
 
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.List;
 
 @Getter
 @Setter
+@AllArgsConstructor
+@NoArgsConstructor
 @EqualsAndHashCode(callSuper = false)
 public class Train extends BaseObject {
 
@@ -18,13 +18,5 @@ public class Train extends BaseObject {
     private List<MinRoute> minRoutes;
     private List<Wagon> wagons;
 
-    public Train() {
-
-    }
-
-
-    public Train(String name, String manufacturer, int maxSpeed, boolean isHighSpeed) {
-
-    }
 
 }

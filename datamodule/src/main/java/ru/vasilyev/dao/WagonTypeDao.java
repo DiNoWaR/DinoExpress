@@ -19,6 +19,17 @@ public class WagonTypeDao extends AbstractDao<WagonType> {
 
     public void insertCollectionOfEntity(Collection<WagonType> entities) {
 
+        SqlSession session = null;
+
+        try {
+            session = myBatisSessionFactory.getSqlSessionFactory().openSession();
+            WagonTypeMapper wagonTypeMapper = session.getMapper(WagonTypeMapper.class);
+            wagonTypeMapper.insertCollectionOfEntity(entities);
+
+        } finally {
+            session.close();
+        }
+
     }
 
     public WagonType findEntityById(long id, Class<WagonType> clazz) {

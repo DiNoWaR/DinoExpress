@@ -13,6 +13,6 @@ import lombok.Setter;
 @EqualsAndHashCode(callSuper = false)
 public class Route extends BaseObject {
 
-
+    private String routeCode;
 
 }
