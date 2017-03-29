@@ -4,5 +4,19 @@
 
 <mapper namespace="ru.vasilyev.mappers.MinRouteMapper">
 
+    <insert id="insertEntity" parameterType="minRoute">
+
+        INSERT INTO Minroute (StationFrom, StationTo, DepartureDate, ArrivalDate, Train, Route, Sequence)
+        VALUES (#{stationFrom},
+                #{stationTo},
+                #{departureDate},
+                #{arrivalDate},
+                #{train},
+                #{route},
+                #{sequence})
+    </insert>
+
+
+
 
 </mapper>

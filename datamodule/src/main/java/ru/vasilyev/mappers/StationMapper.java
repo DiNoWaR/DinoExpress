@@ -5,6 +5,6 @@ import ru.vasilyev.model.Station;
 
 public interface StationMapper extends GenericMapper<Station> {
 
-
+    int findStationByName(String name);
 
 }

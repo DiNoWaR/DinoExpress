@@ -25,6 +25,7 @@
         <mapper resource="mappers/stationMapper.xml"/>
         <mapper resource="mappers/trainMapper.xml"/>
         <mapper resource="mappers/minRouteMapper.xml"/>
+        <mapper resource="mappers/routeMapper.xml"/>
     </mappers>
 
 

@@ -5,6 +5,6 @@ import ru.vasilyev.model.Train;
 
 public interface TrainMapper extends GenericMapper<Train> {
 
-
+    int findTrainByName(String name);
 
 }

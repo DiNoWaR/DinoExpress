@@ -9,6 +9,23 @@
         VALUES (#{name}, #{latitude}, #{longitude});
     </insert>
 
+    <insert id="insertCollectionOfEntity">
+
+        INSERT INTO Station (Name, Latitude, Longitude) VALUES
+
+        <foreach item="element" collection="list" separator=",">
+            (#{element.name}, #{element.latitude}, #{element.longitude})
+        </foreach>
+    </insert>
+
+    <select id="findStationByName" resultType="int" statementType="PREPARED" parameterType="String">
+        SELECT
+        s.Id
+        FROM station s
+        WHERE s.Name = #{name};
+    </select>
+
+
     <select id="getAllEntities" resultMap="stationsMap">
         SELECT
         s.Id,

@@ -1,5 +1,6 @@
 package ru.vasilyev.model;
 
+import java.util.Date;
 import lombok.*;
 
 @Getter
@@ -9,6 +10,12 @@ import lombok.*;
 @EqualsAndHashCode(callSuper = false)
 public class MinRoute extends BaseObject {
 
-    private Station stationFrom;
+    private int stationFrom;
+    private int stationTo;
+    private Date departureDate;
+    private Date arrivalDate;
+    private int train;
+    private int route;
+    private int sequence;
 
 }
