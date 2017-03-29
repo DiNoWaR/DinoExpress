@@ -30,6 +30,24 @@ public class TrainDao extends AbstractDao<Train> {
 
     }
 
+    public int findTrainByName(String name) {
+
+        SqlSession session = null;
+
+        int trainID;
+
+        try {
+            session = myBatisSessionFactory.getSqlSessionFactory().openSession();
+            TrainMapper trainMapper = session.getMapper(TrainMapper.class);
+
+            trainID = trainMapper.findTrainByName(name);
+
+        } finally {
+            session.close();
+        }
+        return trainID;
+    }
+
     public Train findEntityById(long id, Class<Train> clazz) {
         return null;
     }

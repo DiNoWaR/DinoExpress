@@ -1,6 +1,7 @@
 package ru.vasilyev.util;
 
 
+import java.util.Date;
 import java.util.List;
 import javax.ejb.EJB;
 
@@ -10,11 +11,14 @@ import javax.ejb.TransactionAttribute;
 import javax.ejb.TransactionAttributeType;
 import javax.ejb.TransactionManagement;
 import javax.ejb.TransactionManagementType;
+import ru.vasilyev.dao.MinRouteDao;
+import ru.vasilyev.dao.RouteDao;
 import ru.vasilyev.dao.SeatDao;
 import ru.vasilyev.dao.StationDao;
 import ru.vasilyev.dao.TrainDao;
 import ru.vasilyev.dao.WagonDao;
 import ru.vasilyev.dao.WagonTypeDao;
+import ru.vasilyev.model.MinRoute;
 import ru.vasilyev.model.Train;
 import ru.vasilyev.model.WagonType;
 
@@ -38,6 +42,11 @@ public class Generator {
     @EJB
     private WagonDao wagonDao;
 
+    @EJB
+    private RouteDao routeDao;
+
+    @EJB
+    private MinRouteDao minRouteDao;
 
 
     @TransactionAttribute(TransactionAttributeType.REQUIRED)
@@ -55,34 +64,19 @@ public class Generator {
         wagonTypeDao.insertEntity(wagonType);
     }
 
+    @TransactionAttribute(TransactionAttributeType.REQUIRED)
+    public void assignTrainToRoute(String routeCode, String trainName, String stationFrom, String stationTo, Date departureDate, Date arrivalDate, int sequence) {
 
+        int routeCodeID = routeDao.findRouteByRouteCode(routeCode);
+        int trainId = trainDao.findTrainByName(trainName);
+        int stationFromID = stationDao.findStationByName(stationFrom);
+        int stationToID = stationDao.findStationByName(stationTo);
 
+        MinRoute minRoute = new MinRoute(stationFromID, stationToID, departureDate, arrivalDate, trainId, routeCodeID, sequence);
 
+        minRouteDao.insertEntity(minRoute);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    }
 
 
 }

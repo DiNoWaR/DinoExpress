@@ -21,6 +21,24 @@ public class StationDao extends AbstractDao<Station> {
 
     }
 
+    public int findStationByName(String name) {
+
+        SqlSession session = null;
+
+        int stationID;
+
+        try {
+            session = myBatisSessionFactory.getSqlSessionFactory().openSession();
+            StationMapper trainMapper = session.getMapper(StationMapper.class);
+
+            stationID = trainMapper.findStationByName(name);
+
+        } finally {
+            session.close();
+        }
+        return stationID;
+    }
+
     public Station findEntityById(long id, Class<Station> clazz) {
         return null;
     }
