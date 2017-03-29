@@ -4,5 +4,25 @@
 
 <mapper namespace="ru.vasilyev.mappers.StationMapper">
 
+    <insert id="insertEntity" parameterType="station">
+        INSERT INTO Station (Name, Latitude, Longitude)
+        VALUES (#{name}, #{latitude}, #{longitude});
+    </insert>
+
+    <select id="getAllEntities" resultMap="stationsMap">
+        SELECT
+        s.Id,
+        s.Name,
+        s.Latitude,
+        s.Longitude
+        FROM dinoexpress.station s;
+    </select>
+
+    <resultMap type="station" id="stationsMap">
+        <id column="id" property="id"/>
+        <result column="Name" property="name"/>
+        <result column="Latitude" property="latitude"/>
+        <result column="Longitude" property="longitude"/>
+    </resultMap>
 
 </mapper>

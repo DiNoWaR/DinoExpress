@@ -14,4 +14,14 @@
         <url-pattern>/</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>insertServlet</servlet-name>
+        <servlet-class>ru.vasilyev.servlets.TestInsertServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>insertServlet</servlet-name>
+        <url-pattern>/insertwagons</url-pattern>
+    </servlet-mapping>
+
 </web-app>
