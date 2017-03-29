@@ -26,6 +26,8 @@
         <mapper resource="mappers/trainMapper.xml"/>
         <mapper resource="mappers/minRouteMapper.xml"/>
         <mapper resource="mappers/routeMapper.xml"/>
+        <mapper resource="mappers/userMapper.xml"/>
+        <mapper resource="mappers/ticketMapper.xml"/>
     </mappers>
 
 
