@@ -48,10 +48,6 @@ public class TrainDao extends AbstractDao<Train> {
         return trainID;
     }
 
-    public Train findEntityById(long id, Class<Train> clazz) {
-        return null;
-    }
-
     public List<Train> getAllEntities() {
         return null;
     }

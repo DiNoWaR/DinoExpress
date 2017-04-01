@@ -16,10 +16,6 @@ public class WagonDao extends AbstractDao<Wagon> {
 
     }
 
-    public Wagon findEntityById(long id, Class<Wagon> clazz) {
-        return null;
-    }
-
     public List<Wagon> getAllEntities() {
         return null;
     }

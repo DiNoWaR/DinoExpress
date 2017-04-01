@@ -32,10 +32,6 @@ public class WagonTypeDao extends AbstractDao<WagonType> {
 
     }
 
-    public WagonType findEntityById(long id, Class<WagonType> clazz) {
-        return null;
-    }
-
     public List<WagonType> getAllEntities() {
 
         SqlSession session = null;

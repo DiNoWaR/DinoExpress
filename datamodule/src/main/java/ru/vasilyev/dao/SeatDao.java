@@ -19,10 +19,6 @@ public class SeatDao extends AbstractDao<Seat> {
 
     }
 
-    public Seat findEntityById(long id, Class<Seat> clazz) {
-        return null;
-    }
-
     public List<Seat> getAllEntities() {
         return null;
     }

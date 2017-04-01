@@ -39,10 +39,6 @@ public class StationDao extends AbstractDao<Station> {
         return stationID;
     }
 
-    public Station findEntityById(long id, Class<Station> clazz) {
-        return null;
-    }
-
     public List<Station> getAllEntities() {
         SqlSession session = null;
 

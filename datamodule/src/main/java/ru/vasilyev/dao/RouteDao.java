@@ -38,10 +38,6 @@ public class RouteDao extends AbstractDao<Route> {
         return routeID;
     }
 
-    public Route findEntityById(long id, Class<Route> clazz) {
-        return null;
-    }
-
     public List<Route> getAllEntities() {
         return null;
     }

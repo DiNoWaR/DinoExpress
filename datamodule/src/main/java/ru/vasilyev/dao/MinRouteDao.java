@@ -28,10 +28,6 @@ public class MinRouteDao extends AbstractDao<MinRoute> {
 
     }
 
-    public MinRoute findEntityById(long id, Class<MinRoute> clazz) {
-        return null;
-    }
-
     public List<MinRoute> getAllEntities() {
         return null;
     }

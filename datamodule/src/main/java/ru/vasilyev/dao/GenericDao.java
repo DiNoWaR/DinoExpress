@@ -13,8 +13,6 @@ public interface GenericDao<T> {
 
     void insertCollectionOfEntity(Collection<T> entities);
 
-    T findEntityById(long id, Class<T> clazz);
-
     List<T> getAllEntities();
 
     void deleteAllEntities();
