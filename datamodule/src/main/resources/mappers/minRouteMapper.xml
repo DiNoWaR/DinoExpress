@@ -16,7 +16,20 @@
                 #{sequence})
     </insert>
 
+    <insert id="insertCollectionOfEntity">
 
+        INSERT INTO Minroute (StationFrom, StationTo, DepartureDate, ArrivalDate, Train, Route, Sequence) VALUES
+
+        <foreach item="element" collection="list" separator=",">
+            (#{element.stationFrom},
+            #{element.stationTo},
+            #{element.departureDate},
+            #{element.arrivalDate},
+            #{element.train},
+            #{element.route},
+            #{element.sequence})
+        </foreach>
+    </insert>
 
 
 </mapper>
