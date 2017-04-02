@@ -54,12 +54,12 @@ public class Generator {
 
     @TransactionAttribute(TransactionAttributeType.REQUIRED)
     public void generateTrain(Train train) {
-        trainDao.insertEntity(train);
+
     }
 
     @TransactionAttribute(TransactionAttributeType.REQUIRED)
     public void generateCollectionOfTrains(List<Train> trains) {
-        trainDao.insertCollectionOfEntity(trains);
+
     }
 
     @TransactionAttribute(TransactionAttributeType.REQUIRED)
