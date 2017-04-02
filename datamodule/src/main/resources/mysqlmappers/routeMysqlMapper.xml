@@ -1,0 +1,14 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="ru.vasilyev.mappers.mysqlmappers.RouteMysqlMapper">
+
+    <select id="findRouteIDByRouteCode" resultType="int" statementType="PREPARED" parameterType="String">
+        SELECT
+        r.Id
+        FROM route r
+        WHERE r.RouteCode = #{routeCode};
+    </select>
+
+</mapper>

@@ -1,8 +1,8 @@
 package ru.vasilyev.service;
 
 
-import ru.vasilyev.dao.StationDao;
-import ru.vasilyev.dao.WagonTypeDao;
+import ru.vasilyev.dao.mysqldao.StationDao;
+import ru.vasilyev.dao.mysqldao.WagonTypeDao;
 import ru.vasilyev.model.Station;
 import ru.vasilyev.model.WagonType;
 

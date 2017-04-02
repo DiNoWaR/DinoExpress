@@ -1,0 +1,45 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="ru.vasilyev.mappers.mysqlmappers.StationMysqlMapper">
+
+    <insert id="insertEntity" parameterType="station">
+        INSERT INTO Station (Name, Latitude, Longitude)
+        VALUES (#{name}, #{latitude}, #{longitude});
+    </insert>
+
+    <insert id="insertCollectionOfEntity">
+
+        INSERT INTO Station (Name, Latitude, Longitude) VALUES
+
+        <foreach item="element" collection="list" separator=",">
+            (#{element.name}, #{element.latitude}, #{element.longitude})
+        </foreach>
+    </insert>
+
+    <select id="findStationByName" resultType="int" statementType="PREPARED" parameterType="String">
+        SELECT
+        s.Id
+        FROM station s
+        WHERE s.Name = #{name};
+    </select>
+
+
+    <select id="getAllEntities" resultMap="stationsMap">
+        SELECT
+        s.Id,
+        s.Name,
+        s.Latitude,
+        s.Longitude
+        FROM station s;
+    </select>
+
+    <resultMap type="station" id="stationsMap">
+        <id column="id" property="id"/>
+        <result column="Name" property="name"/>
+        <result column="Latitude" property="latitude"/>
+        <result column="Longitude" property="longitude"/>
+    </resultMap>
+
+</mapper>

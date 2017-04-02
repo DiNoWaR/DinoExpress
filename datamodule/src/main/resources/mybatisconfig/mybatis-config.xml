@@ -21,13 +21,13 @@
     </environments>
 
     <mappers>
-        <mapper resource="mappers/wagonTypeMapper.xml"/>
-        <mapper resource="mappers/stationMapper.xml"/>
-        <mapper resource="mappers/trainMapper.xml"/>
-        <mapper resource="mappers/minRouteMapper.xml"/>
-        <mapper resource="mappers/routeMapper.xml"/>
-        <mapper resource="mappers/userMapper.xml"/>
-        <mapper resource="mappers/ticketMapper.xml"/>
+        <mapper resource="mysqlmappers/wagonTypeMysqlMapper.xml"/>
+        <mapper resource="mysqlmappers/stationMysqlMapper.xml"/>
+        <mapper resource="mysqlmappers/trainMysqlMapper.xml"/>
+        <mapper resource="mysqlmappers/minRouteMysqlMapper.xml"/>
+        <mapper resource="mysqlmappers/routeMysqlMapper.xml"/>
+        <mapper resource="mysqlmappers/userMysqlMapper.xml"/>
+        <mapper resource="mysqlmappers/ticketMysqlMapper.xml"/>
     </mappers>
 
 

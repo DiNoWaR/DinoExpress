@@ -1,0 +1,39 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="ru.vasilyev.mappers.mysqlmappers.WagonTypeMysqlMapper">
+
+    <insert id="insertEntity" parameterType="wagonType">
+        INSERT INTO WagonType (ClassCode, Description, WagonTypeCoefficient)
+        VALUES (#{classCode}, #{description}, #{wagonTypeCoefficient});
+    </insert>
+
+    <insert id="insertCollectionOfEntity">
+
+        INSERT INTO WagonType (ClassCode, Description, WagonTypeCoefficient) VALUES
+
+        <foreach item="element" collection="list" separator=",">
+            (#{element.classCode}, #{element.description}, #{element.wagonTypeCoefficient})
+        </foreach>
+    </insert>
+
+
+    <select id="getAllEntities" resultMap="wagonTypesMap">
+        SELECT
+            WT.Id,
+            WT.ClassCode,
+            WT.Description,
+            WT.WagonTypeCoefficient
+        FROM WagonType WT;
+    </select>
+
+
+    <resultMap type="wagonType" id="wagonTypesMap">
+        <id column="id" property="id"/>
+        <result column="ClassCode" property="classCode"/>
+        <result column="Description" property="description"/>
+        <result column="WagonTypeCoefficient" property="wagonTypeCoefficient"/>
+    </resultMap>
+
+</mapper>

@@ -13,13 +13,13 @@ import javax.ejb.TransactionAttributeType;
 import javax.ejb.TransactionManagement;
 import javax.ejb.TransactionManagementType;
 
-import ru.vasilyev.dao.MinRouteDao;
-import ru.vasilyev.dao.RouteDao;
-import ru.vasilyev.dao.SeatDao;
-import ru.vasilyev.dao.StationDao;
-import ru.vasilyev.dao.TrainDao;
-import ru.vasilyev.dao.WagonDao;
-import ru.vasilyev.dao.WagonTypeDao;
+import ru.vasilyev.dao.mysqldao.MinRouteDao;
+import ru.vasilyev.dao.mysqldao.RouteDao;
+import ru.vasilyev.dao.mysqldao.SeatDao;
+import ru.vasilyev.dao.mysqldao.StationDao;
+import ru.vasilyev.dao.mysqldao.TrainDao;
+import ru.vasilyev.dao.mysqldao.WagonDao;
+import ru.vasilyev.dao.mysqldao.WagonTypeDao;
 import ru.vasilyev.dto.MinRouteDTO;
 import ru.vasilyev.model.MinRoute;
 import ru.vasilyev.model.Train;
@@ -72,7 +72,7 @@ public class Generator {
 
         List<MinRoute> minRoutes = new ArrayList<>();
 
-        int routeCodeID = routeDao.findRouteByRouteCode(routeCode);
+        int routeCodeID = routeDao.findRouteIDByRouteCode(routeCode);
         int trainId = trainDao.findTrainByName(trainName);
 
         for (MinRouteDTO item : minRoutesDTOList) {
@@ -92,37 +92,6 @@ public class Generator {
 
         minRouteDao.insertCollectionOfEntity(minRoutes);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
-
 
 }
