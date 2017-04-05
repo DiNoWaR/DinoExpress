@@ -19,29 +19,19 @@ public class WagonTypeDao extends AbstractMySqlDao<WagonType> {
 
     public void insertCollectionOfEntity(Collection<WagonType> entities) {
 
-        SqlSession session = null;
-
-        try {
-            session = myBatisMysqlSessionFactory.getSqlSessionFactory().openSession();
+        try (SqlSession session = myBatisMysqlSessionFactory.getSqlSessionFactory().openSession()) {
             WagonTypeMysqlMapper wagonTypeMapper = session.getMapper(WagonTypeMysqlMapper.class);
             wagonTypeMapper.insertCollectionOfEntity(entities);
 
-        } finally {
-            session.close();
         }
 
     }
 
     public List<WagonType> getAllEntities() {
 
-        SqlSession session = null;
-
-        try {
-            session = myBatisMysqlSessionFactory.getSqlSessionFactory().openSession();
+        try (SqlSession session = myBatisMysqlSessionFactory.getSqlSessionFactory().openSession()) {
             WagonTypeMysqlMapper wagonTypeMapper = session.getMapper(WagonTypeMysqlMapper.class);
             return wagonTypeMapper.getAllEntities();
-        } finally {
-            session.close();
         }
     }
 

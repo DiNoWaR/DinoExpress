@@ -14,15 +14,10 @@ public class MinRouteDao extends AbstractMySqlDao<MinRoute> {
 
     public void insertEntity(MinRoute entity) {
 
-        SqlSession session = null;
-
-        try {
-            session = myBatisMysqlSessionFactory.getSqlSessionFactory().openSession();
+        try (SqlSession session = myBatisMysqlSessionFactory.getSqlSessionFactory().openSession()) {
             MinRouteMysqlMapper minRouteMapper = session.getMapper(MinRouteMysqlMapper.class);
             minRouteMapper.insertEntity(entity);
 
-        } finally {
-            session.close();
         }
 
     }

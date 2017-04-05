@@ -14,15 +14,10 @@ public class TrainDao extends AbstractMySqlDao<Train> {
 
     public void insertEntity(Train entity) {
 
-        SqlSession session = null;
-
-        try {
-            session = myBatisMysqlSessionFactory.getSqlSessionFactory().openSession();
+        try (SqlSession session = myBatisMysqlSessionFactory.getSqlSessionFactory().openSession()) {
             TrainMysqlMapper trainMapper = session.getMapper(TrainMysqlMapper.class);
             trainMapper.insertEntity(entity);
 
-        } finally {
-            session.close();
         }
     }
 
@@ -32,18 +27,13 @@ public class TrainDao extends AbstractMySqlDao<Train> {
 
     public int findTrainByName(String name) {
 
-        SqlSession session = null;
-
         int trainID;
 
-        try {
-            session = myBatisMysqlSessionFactory.getSqlSessionFactory().openSession();
+        try (SqlSession session = myBatisMysqlSessionFactory.getSqlSessionFactory().openSession()) {
             TrainMysqlMapper trainMapper = session.getMapper(TrainMysqlMapper.class);
 
             trainID = trainMapper.findTrainByName(name);
 
-        } finally {
-            session.close();
         }
         return trainID;
     }

@@ -23,31 +23,22 @@ public class StationDao extends AbstractMySqlDao<Station> {
 
     public int findStationByName(String name) {
 
-        SqlSession session = null;
-
         int stationID;
 
-        try {
-            session = myBatisMysqlSessionFactory.getSqlSessionFactory().openSession();
+        try (SqlSession session = myBatisMysqlSessionFactory.getSqlSessionFactory().openSession()) {
             StationMysqlMapper trainMapper = session.getMapper(StationMysqlMapper.class);
 
             stationID = trainMapper.findStationByName(name);
 
-        } finally {
-            session.close();
         }
         return stationID;
     }
 
     public List<Station> getAllEntities() {
-        SqlSession session = null;
 
-        try {
-            session = myBatisMysqlSessionFactory.getSqlSessionFactory().openSession();
+        try (SqlSession session = myBatisMysqlSessionFactory.getSqlSessionFactory().openSession()) {
             StationMysqlMapper stationMapper = session.getMapper(StationMysqlMapper.class);
             return stationMapper.getAllEntities();
-        } finally {
-            session.close();
         }
     }
 

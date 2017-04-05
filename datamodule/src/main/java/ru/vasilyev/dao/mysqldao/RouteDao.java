@@ -21,18 +21,13 @@ public class RouteDao extends AbstractMySqlDao<Route> {
 
     public int findRouteIDByRouteCode(String code) {
 
-        SqlSession session = null;
-
         int routeID;
 
-        try {
-            session = myBatisMysqlSessionFactory.getSqlSessionFactory().openSession();
+        try (SqlSession session = myBatisMysqlSessionFactory.getSqlSessionFactory().openSession()) {
             RouteMysqlMapper routeMapper = session.getMapper(RouteMysqlMapper.class);
 
             routeID = routeMapper.findRouteIDByRouteCode(code);
 
-        } finally {
-            session.close();
         }
         return routeID;
     }
