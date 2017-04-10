@@ -18,13 +18,12 @@
         </foreach>
     </insert>
 
-    <select id="findStationByName" resultType="int" statementType="PREPARED" parameterType="String">
+    <select id="findStationByName" statementType="PREPARED" parameterType="String" resultType="int" >
         SELECT
         s.Id
         FROM station s
         WHERE s.Name = #{name};
     </select>
-
 
     <select id="getAllEntities" resultMap="stationsMap">
         SELECT
@@ -35,7 +34,7 @@
         FROM station s;
     </select>
 
-    <resultMap type="station" id="stationsMap">
+    <resultMap id="stationsMap" type="station">
         <id column="id" property="id"/>
         <result column="Name" property="name"/>
         <result column="Latitude" property="latitude"/>
