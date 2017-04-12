@@ -14,5 +14,6 @@ import lombok.Setter;
 public class Route extends BaseObject {
 
     private String routeCode;
+    private boolean assigned;
 
 }
