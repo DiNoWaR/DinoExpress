@@ -90,8 +90,9 @@ DROP TABLE IF EXISTS `DiNoExpress`.`Route` ;
 CREATE TABLE IF NOT EXISTS `DiNoExpress`.`Route` (
   `Id` INT NOT NULL AUTO_INCREMENT,
   `RouteCode` VARCHAR(20) NOT NULL,
+  `Assigned` TINYINT NOT NULL DEFAULT 0,
   PRIMARY KEY (`Id`))
-ENGINE = InnoDB;
+  ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
