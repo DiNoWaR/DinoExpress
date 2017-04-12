@@ -23,8 +23,6 @@ CREATE TABLE IF NOT EXISTS `DiNoExpress`.`Train` (
   PRIMARY KEY (`Id`))
 ENGINE = InnoDB;
 
-CREATE UNIQUE INDEX `Id_UNIQUE` ON `DiNoExpress`.`Train` (`Id` ASC);
-
 
 -- -----------------------------------------------------
 -- Table `DiNoExpress`.`WagonType`
@@ -62,10 +60,6 @@ CREATE TABLE IF NOT EXISTS `DiNoExpress`.`Wagon` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
-
-CREATE INDEX `fk_Wagon_WagonClass_idx` ON `DiNoExpress`.`Wagon` (`WagonType` ASC);
-
-CREATE INDEX `fk_Wagon_Train1_idx` ON `DiNoExpress`.`Wagon` (`Train` ASC);
 
 
 -- -----------------------------------------------------
@@ -132,14 +126,6 @@ CREATE TABLE IF NOT EXISTS `DiNoExpress`.`MinRoute` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-CREATE INDEX `StationFrom_idx` ON `DiNoExpress`.`MinRoute` (`StationFrom` ASC);
-
-CREATE INDEX `StationTo_idx` ON `DiNoExpress`.`MinRoute` (`StationTo` ASC);
-
-CREATE INDEX `Train_idx` ON `DiNoExpress`.`MinRoute` (`Train` ASC);
-
-CREATE INDEX `Route_idx` ON `DiNoExpress`.`MinRoute` (`Route` ASC);
-
 
 -- -----------------------------------------------------
 -- Table `DiNoExpress`.`User`
@@ -176,8 +162,6 @@ CREATE TABLE IF NOT EXISTS `DiNoExpress`.`Ticket` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-CREATE INDEX `User_idx` ON `DiNoExpress`.`Ticket` (`User` ASC);
-
 
 -- -----------------------------------------------------
 -- Table `DiNoExpress`.`Seat`
@@ -197,8 +181,6 @@ CREATE TABLE IF NOT EXISTS `DiNoExpress`.`Seat` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
-
-CREATE INDEX `Wagon_idx` ON `DiNoExpress`.`Seat` (`Wagon` ASC);
 
 
 -- -----------------------------------------------------
@@ -222,7 +204,3 @@ CREATE TABLE IF NOT EXISTS `DiNoExpress`.`TicketMinRoute` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
-
-CREATE INDEX `TicketMinRouteMinRouteKey_idx` ON `DiNoExpress`.`TicketMinRoute` (`MinRouteId` ASC);
-
-CREATE INDEX `TicketMinRouteTicketKey_idx` ON `DiNoExpress`.`TicketMinRoute` (`TicketId` ASC);
