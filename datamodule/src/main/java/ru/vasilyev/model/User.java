@@ -22,4 +22,5 @@ public class User extends BaseObject {
     private String password;
     private Gender gender;
     private boolean isAdmin;
+    private int passportData;
 }

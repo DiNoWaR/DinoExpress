@@ -141,6 +141,7 @@ CREATE TABLE IF NOT EXISTS `DiNoExpress`.`User` (
   `Gender` ENUM('F', 'M') NOT NULL,
   `IsAdmin` TINYINT NULL DEFAULT 0,
   `Password` VARCHAR(15) NOT NULL,
+  `PassportData` INT NOT NULL,
   PRIMARY KEY (`Id`))
 ENGINE = InnoDB;
 
