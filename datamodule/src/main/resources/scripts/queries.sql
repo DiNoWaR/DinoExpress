@@ -32,7 +32,7 @@ FROM (
            JOIN station s2 ON mr.StationTo = s2.Id
            JOIN train t ON mr.Train = t.Id
          WHERE s2.name = 'Saint-Petersburg') AS dest
-WHERE src.RouteCode = dest.RouteCode;
+WHERE src.RouteCode = dest.RouteCode and src.DepartureDate > '2017-07-01';
 
 ##Find stations, which certain route passed
 SELECT

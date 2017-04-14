@@ -30,7 +30,6 @@ public class TestService {
         wagonTypeMysqlDao.insertCollectionOfEntity(wagonTypes);
     }
 
-
     public List<WagonType> getAllWagonTypes() {
         return wagonTypeMysqlDao.getAllEntities();
     }
