@@ -1,24 +1,24 @@
 package ru.vasilyev.service;
 
 
-import ru.vasilyev.dao.mysqldao.StationDao;
-import ru.vasilyev.dao.mysqldao.WagonTypeDao;
+import ru.vasilyev.dao.mysqldao.StationMySqlDao;
+import ru.vasilyev.dao.mysqldao.WagonTypeMySqlDao;
 import ru.vasilyev.model.Station;
 import ru.vasilyev.model.WagonType;
 
 
-import javax.ejb.EJB;
 import javax.ejb.Stateless;
+import javax.inject.Inject;
 import java.util.List;
 
 @Stateless
 public class TestService {
 
-    @EJB
-    private WagonTypeDao wagonTypeDao;
+    @Inject
+    private WagonTypeMySqlDao wagonTypeMysqlDao;
 
-    @EJB
-    private StationDao stationDao;
+    @Inject
+    private StationMySqlDao stationDao;
 
 
     public void insertWagonType(WagonType wagonType) {
@@ -27,12 +27,12 @@ public class TestService {
     }
 
     public void insertCollectionOfWagonTypes(List<WagonType> wagonTypes) {
-        wagonTypeDao.insertCollectionOfEntity(wagonTypes);
+        wagonTypeMysqlDao.insertCollectionOfEntity(wagonTypes);
     }
 
 
     public List<WagonType> getAllWagonTypes() {
-        return wagonTypeDao.getAllEntities();
+        return wagonTypeMysqlDao.getAllEntities();
     }
 
     public List<Station> getAllStations() {

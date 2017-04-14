@@ -13,13 +13,13 @@ import javax.ejb.TransactionAttributeType;
 import javax.ejb.TransactionManagement;
 import javax.ejb.TransactionManagementType;
 
-import ru.vasilyev.dao.mysqldao.MinRouteDao;
-import ru.vasilyev.dao.mysqldao.RouteDao;
-import ru.vasilyev.dao.mysqldao.SeatDao;
-import ru.vasilyev.dao.mysqldao.StationDao;
-import ru.vasilyev.dao.mysqldao.TrainDao;
-import ru.vasilyev.dao.mysqldao.WagonDao;
-import ru.vasilyev.dao.mysqldao.WagonTypeDao;
+import ru.vasilyev.dao.mysqldao.MinRouteMySqlDao;
+import ru.vasilyev.dao.mysqldao.RouteMySqlDao;
+import ru.vasilyev.dao.mysqldao.SeatMySqlDao;
+import ru.vasilyev.dao.mysqldao.StationMySqlDao;
+import ru.vasilyev.dao.mysqldao.TrainMySqlDao;
+import ru.vasilyev.dao.mysqldao.WagonMysqlDao;
+import ru.vasilyev.dao.mysqldao.WagonTypeMySqlDao;
 import ru.vasilyev.dto.MinRouteDTO;
 import ru.vasilyev.model.MinRoute;
 import ru.vasilyev.model.Train;
@@ -31,25 +31,25 @@ import ru.vasilyev.model.WagonType;
 public class Generator {
 
     @EJB
-    private WagonTypeDao wagonTypeDao;
+    private WagonTypeMySqlDao wagonTypeMysqlDao;
 
     @EJB
-    private StationDao stationDao;
+    private StationMySqlDao stationDao;
 
     @EJB
-    private TrainDao trainDao;
+    private TrainMySqlDao trainDao;
 
     @EJB
-    private SeatDao seatDao;
+    private SeatMySqlDao seatDao;
 
     @EJB
-    private WagonDao wagonDao;
+    private WagonMysqlDao wagonDao;
 
     @EJB
-    private RouteDao routeDao;
+    private RouteMySqlDao routeDao;
 
     @EJB
-    private MinRouteDao minRouteDao;
+    private MinRouteMySqlDao minRouteDao;
 
 
     @TransactionAttribute(TransactionAttributeType.REQUIRED)
@@ -64,7 +64,7 @@ public class Generator {
 
     @TransactionAttribute(TransactionAttributeType.REQUIRED)
     public void generateWagonType(WagonType wagonType) {
-        wagonTypeDao.insertEntity(wagonType);
+        wagonTypeMysqlDao.insertEntity(wagonType);
     }
 
     @TransactionAttribute(TransactionAttributeType.REQUIRED)

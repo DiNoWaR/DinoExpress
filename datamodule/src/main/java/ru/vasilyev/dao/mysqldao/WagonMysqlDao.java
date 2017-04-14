@@ -10,7 +10,7 @@ import ru.vasilyev.model.Wagon;
 
 @Stateless
 @TransactionManagement(TransactionManagementType.CONTAINER)
-public class WagonDao extends AbstractMySqlDao<Wagon> {
+public class WagonMysqlDao extends AbstractMySqlDao<Wagon> {
 
 
     public void insertEntity(Wagon entity) {

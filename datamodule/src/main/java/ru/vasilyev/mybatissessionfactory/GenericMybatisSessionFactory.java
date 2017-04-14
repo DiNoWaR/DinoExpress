@@ -1,4 +1,4 @@
-package ru.vasilyev.mybatissessionfactory.genericmybatissessionfactory;
+package ru.vasilyev.mybatissessionfactory;
 
 
 import org.apache.ibatis.session.SqlSessionFactory;

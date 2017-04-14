@@ -13,7 +13,7 @@ import java.util.List;
 
 @Stateless
 @TransactionManagement(TransactionManagementType.CONTAINER)
-public class StationDao extends AbstractMySqlDao<Station> {
+public class StationMySqlDao extends AbstractMySqlDao<Station> {
 
 
     public void insertEntity(Station entity) {

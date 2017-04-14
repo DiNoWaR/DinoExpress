@@ -12,7 +12,7 @@ import ru.vasilyev.model.Route;
 
 @Stateless
 @TransactionManagement(TransactionManagementType.CONTAINER)
-public class RouteDao extends AbstractMySqlDao<Route> {
+public class RouteMySqlDao extends AbstractMySqlDao<Route> {
 
 
     public void insertEntity(Route entity) {

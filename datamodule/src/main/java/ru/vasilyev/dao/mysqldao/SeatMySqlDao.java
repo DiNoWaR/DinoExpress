@@ -11,7 +11,7 @@ import ru.vasilyev.model.Seat;
 
 @Stateless
 @TransactionManagement(TransactionManagementType.CONTAINER)
-public class SeatDao extends AbstractMySqlDao<Seat> {
+public class SeatMySqlDao extends AbstractMySqlDao<Seat> {
 
 
     public void insertEntity(Seat entity) {

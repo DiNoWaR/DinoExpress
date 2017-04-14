@@ -13,8 +13,7 @@ import javax.ejb.TransactionManagementType;
 
 @Stateless
 @TransactionManagement(TransactionManagementType.CONTAINER)
-
-public class MinRouteDao extends AbstractMySqlDao<MinRoute> {
+public class MinRouteMySqlDao extends AbstractMySqlDao<MinRoute> {
 
     public void insertEntity(MinRoute entity) {
 

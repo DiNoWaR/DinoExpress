@@ -2,7 +2,7 @@ package ru.vasilyev.dao.mysqldao;
 
 
 import ru.vasilyev.dao.genericdao.GenericDao;
-import ru.vasilyev.mybatissessionfactory.genericmybatissessionfactory.GenericMybatisSessionFactory;
+import ru.vasilyev.mybatissessionfactory.GenericMybatisSessionFactory;
 
 import javax.inject.Inject;
 import javax.inject.Named;

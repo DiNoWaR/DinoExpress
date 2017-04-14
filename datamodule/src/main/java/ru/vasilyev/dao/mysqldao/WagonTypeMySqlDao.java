@@ -11,7 +11,7 @@ import java.util.List;
 
 @Stateless
 @TransactionManagement(TransactionManagementType.CONTAINER)
-public class WagonTypeDao extends AbstractMySqlDao<WagonType> {
+public class WagonTypeMySqlDao extends AbstractMySqlDao<WagonType> {
 
 
     public void insertEntity(WagonType entity) {

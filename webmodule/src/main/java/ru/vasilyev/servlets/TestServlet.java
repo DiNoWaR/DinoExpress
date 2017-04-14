@@ -5,7 +5,7 @@ import ru.vasilyev.model.Station;
 import ru.vasilyev.model.WagonType;
 import ru.vasilyev.service.TestService;
 
-import javax.ejb.EJB;
+import javax.inject.Inject;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -17,7 +17,7 @@ import java.util.List;
 
 public class TestServlet extends HttpServlet {
 
-    @EJB
+    @Inject
     private TestService testService;
 
 

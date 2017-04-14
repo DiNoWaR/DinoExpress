@@ -13,7 +13,7 @@ import ru.vasilyev.model.Train;
 
 @Stateless
 @TransactionManagement(TransactionManagementType.CONTAINER)
-public class TrainDao extends AbstractMySqlDao<Train> {
+public class TrainMySqlDao extends AbstractMySqlDao<Train> {
 
 
     public void insertEntity(Train entity) {

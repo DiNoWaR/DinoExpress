@@ -4,7 +4,6 @@ import lombok.Getter;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
-import ru.vasilyev.mybatissessionfactory.genericmybatissessionfactory.GenericMybatisSessionFactory;
 
 import javax.annotation.PostConstruct;
 import javax.inject.Named;
