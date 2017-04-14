@@ -23,6 +23,14 @@ public class RouteMySqlDao extends AbstractMySqlDao<Route> {
 
     }
 
+    public List<Route> getAllEntities() {
+        return null;
+    }
+
+    public void deleteAllEntities() {
+
+    }
+
     public int findRouteIDByRouteCode(String code) {
 
         int routeID;
@@ -36,11 +44,4 @@ public class RouteMySqlDao extends AbstractMySqlDao<Route> {
         return routeID;
     }
 
-    public List<Route> getAllEntities() {
-        return null;
-    }
-
-    public void deleteAllEntities() {
-
-    }
 }

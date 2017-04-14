@@ -24,19 +24,6 @@ public class StationMySqlDao extends AbstractMySqlDao<Station> {
 
     }
 
-    public int findStationByName(String name) {
-
-        int stationID;
-
-        try (SqlSession session = myBatisMysqlSessionFactory.getSqlSessionFactory().openSession()) {
-            StationMysqlMapper trainMapper = session.getMapper(StationMysqlMapper.class);
-
-            stationID = trainMapper.findStationByName(name);
-
-        }
-        return stationID;
-    }
-
     public List<Station> getAllEntities() {
 
         try (SqlSession session = myBatisMysqlSessionFactory.getSqlSessionFactory().openSession()) {
@@ -48,4 +35,17 @@ public class StationMySqlDao extends AbstractMySqlDao<Station> {
     public void deleteAllEntities() {
 
     }
+
+    public int findStationByName(String name) {
+
+        int stationID;
+
+        try (SqlSession session = myBatisMysqlSessionFactory.getSqlSessionFactory().openSession()) {
+            StationMysqlMapper trainMapper = session.getMapper(StationMysqlMapper.class);
+
+            stationID = trainMapper.findStationByName(name);
+        }
+        return stationID;
+    }
+
 }

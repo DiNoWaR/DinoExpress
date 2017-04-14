@@ -29,6 +29,14 @@ public class TrainMySqlDao extends AbstractMySqlDao<Train> {
 
     }
 
+    public List<Train> getAllEntities() {
+        return null;
+    }
+
+    public void deleteAllEntities() {
+
+    }
+
     public int findTrainByName(String name) {
 
         int trainID;
@@ -42,11 +50,4 @@ public class TrainMySqlDao extends AbstractMySqlDao<Train> {
         return trainID;
     }
 
-    public List<Train> getAllEntities() {
-        return null;
-    }
-
-    public void deleteAllEntities() {
-
-    }
 }
