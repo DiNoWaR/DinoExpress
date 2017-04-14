@@ -8,8 +8,12 @@ import ru.vasilyev.mappers.mysqlmappers.MinRouteMysqlMapper;
 import ru.vasilyev.model.MinRoute;
 
 import javax.ejb.Stateless;
+import javax.ejb.TransactionManagement;
+import javax.ejb.TransactionManagementType;
 
 @Stateless
+@TransactionManagement(TransactionManagementType.CONTAINER)
+
 public class MinRouteDao extends AbstractMySqlDao<MinRoute> {
 
     public void insertEntity(MinRoute entity) {
@@ -17,7 +21,6 @@ public class MinRouteDao extends AbstractMySqlDao<MinRoute> {
         try (SqlSession session = myBatisMysqlSessionFactory.getSqlSessionFactory().openSession()) {
             MinRouteMysqlMapper minRouteMapper = session.getMapper(MinRouteMysqlMapper.class);
             minRouteMapper.insertEntity(entity);
-
         }
 
     }

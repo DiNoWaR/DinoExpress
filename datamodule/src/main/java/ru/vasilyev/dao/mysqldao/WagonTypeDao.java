@@ -5,11 +5,12 @@ import org.apache.ibatis.session.SqlSession;
 import ru.vasilyev.model.WagonType;
 import ru.vasilyev.mappers.mysqlmappers.WagonTypeMysqlMapper;
 
-import javax.ejb.Stateless;
+import javax.ejb.*;
 import java.util.Collection;
 import java.util.List;
 
 @Stateless
+@TransactionManagement(TransactionManagementType.CONTAINER)
 public class WagonTypeDao extends AbstractMySqlDao<WagonType> {
 
 
@@ -17,6 +18,7 @@ public class WagonTypeDao extends AbstractMySqlDao<WagonType> {
 
     }
 
+    @TransactionAttribute(TransactionAttributeType.REQUIRED)
     public void insertCollectionOfEntity(Collection<WagonType> entities) {
 
         try (SqlSession session = myBatisMysqlSessionFactory.getSqlSessionFactory().openSession()) {
@@ -27,6 +29,7 @@ public class WagonTypeDao extends AbstractMySqlDao<WagonType> {
 
     }
 
+    @TransactionAttribute(TransactionAttributeType.NOT_SUPPORTED)
     public List<WagonType> getAllEntities() {
 
         try (SqlSession session = myBatisMysqlSessionFactory.getSqlSessionFactory().openSession()) {

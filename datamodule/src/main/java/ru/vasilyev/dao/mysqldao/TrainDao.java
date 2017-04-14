@@ -4,11 +4,15 @@ package ru.vasilyev.dao.mysqldao;
 import java.util.Collection;
 import java.util.List;
 import javax.ejb.Stateless;
+import javax.ejb.TransactionManagement;
+import javax.ejb.TransactionManagementType;
+
 import org.apache.ibatis.session.SqlSession;
 import ru.vasilyev.mappers.mysqlmappers.TrainMysqlMapper;
 import ru.vasilyev.model.Train;
 
 @Stateless
+@TransactionManagement(TransactionManagementType.CONTAINER)
 public class TrainDao extends AbstractMySqlDao<Train> {
 
 

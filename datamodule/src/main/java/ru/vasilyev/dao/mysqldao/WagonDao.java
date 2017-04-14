@@ -3,10 +3,15 @@ package ru.vasilyev.dao.mysqldao;
 import java.util.Collection;
 import java.util.List;
 import javax.ejb.Stateless;
+import javax.ejb.TransactionManagement;
+import javax.ejb.TransactionManagementType;
+
 import ru.vasilyev.model.Wagon;
 
 @Stateless
+@TransactionManagement(TransactionManagementType.CONTAINER)
 public class WagonDao extends AbstractMySqlDao<Wagon> {
+
 
     public void insertEntity(Wagon entity) {
 

@@ -2,7 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html lang="en">
 <head>
-    <title>Title</title>
+    <title>Home</title>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/test.css"/>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/bootstrap.min.css"/>
     <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>

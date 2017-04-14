@@ -3,11 +3,15 @@ package ru.vasilyev.dao.mysqldao;
 import java.util.Collection;
 import java.util.List;
 import javax.ejb.Stateless;
+import javax.ejb.TransactionManagement;
+import javax.ejb.TransactionManagementType;
+
 import org.apache.ibatis.session.SqlSession;
 import ru.vasilyev.mappers.mysqlmappers.RouteMysqlMapper;
 import ru.vasilyev.model.Route;
 
 @Stateless
+@TransactionManagement(TransactionManagementType.CONTAINER)
 public class RouteDao extends AbstractMySqlDao<Route> {
 
 

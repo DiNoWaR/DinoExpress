@@ -6,10 +6,13 @@ import ru.vasilyev.model.Station;
 import ru.vasilyev.mappers.mysqlmappers.StationMysqlMapper;
 
 import javax.ejb.Stateless;
+import javax.ejb.TransactionManagement;
+import javax.ejb.TransactionManagementType;
 import java.util.Collection;
 import java.util.List;
 
 @Stateless
+@TransactionManagement(TransactionManagementType.CONTAINER)
 public class StationDao extends AbstractMySqlDao<Station> {
 
 
