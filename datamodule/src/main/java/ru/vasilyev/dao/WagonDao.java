@@ -1,4 +1,4 @@
-package ru.vasilyev.dao.mysqldao;
+package ru.vasilyev.dao;
 
 import java.util.Collection;
 import java.util.List;
@@ -10,7 +10,7 @@ import ru.vasilyev.model.Wagon;
 
 @Stateless
 @TransactionManagement(TransactionManagementType.CONTAINER)
-public class WagonMysqlDao extends AbstractMySqlDao<Wagon> {
+public class WagonDao extends AbstractDao<Wagon> {
 
 
     public void insertEntity(Wagon entity) {

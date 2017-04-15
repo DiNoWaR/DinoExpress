@@ -1,4 +1,4 @@
-package ru.vasilyev.dao.mysqldao;
+package ru.vasilyev.dao;
 
 
 import org.apache.ibatis.session.SqlSession;
@@ -11,7 +11,7 @@ import java.util.List;
 
 @Stateless
 @TransactionManagement(TransactionManagementType.CONTAINER)
-public class WagonTypeMySqlDao extends AbstractMySqlDao<WagonType> {
+public class WagonTypeDao extends AbstractDao<WagonType> {
 
 
     public void insertEntity(WagonType entity) {
@@ -21,7 +21,7 @@ public class WagonTypeMySqlDao extends AbstractMySqlDao<WagonType> {
     @TransactionAttribute(TransactionAttributeType.REQUIRED)
     public void insertCollectionOfEntity(Collection<WagonType> entities) {
 
-        try (SqlSession session = myBatisMysqlSessionFactory.getSqlSessionFactory().openSession()) {
+        try (SqlSession session = mybatisSessionFactory.getSqlSessionFactory().openSession()) {
             WagonTypeMysqlMapper wagonTypeMapper = session.getMapper(WagonTypeMysqlMapper.class);
             wagonTypeMapper.insertCollectionOfEntity(entities);
 
@@ -32,7 +32,7 @@ public class WagonTypeMySqlDao extends AbstractMySqlDao<WagonType> {
     @TransactionAttribute(TransactionAttributeType.NOT_SUPPORTED)
     public List<WagonType> getAllEntities() {
 
-        try (SqlSession session = myBatisMysqlSessionFactory.getSqlSessionFactory().openSession()) {
+        try (SqlSession session = mybatisSessionFactory.getSqlSessionFactory().openSession()) {
             WagonTypeMysqlMapper wagonTypeMapper = session.getMapper(WagonTypeMysqlMapper.class);
             return wagonTypeMapper.getAllEntities();
         }

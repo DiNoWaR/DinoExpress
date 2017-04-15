@@ -29,7 +29,7 @@
     </select>
 
 
-    <resultMap type="wagonType" id="wagonTypesMap">
+    <resultMap id="wagonTypesMap" type="wagonType">
         <id column="id" property="id"/>
         <result column="ClassCode" property="classCode"/>
         <result column="Description" property="description"/>

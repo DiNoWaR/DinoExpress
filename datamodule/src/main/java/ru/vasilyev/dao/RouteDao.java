@@ -1,4 +1,4 @@
-package ru.vasilyev.dao.mysqldao;
+package ru.vasilyev.dao;
 
 import java.util.Collection;
 import java.util.List;
@@ -12,7 +12,7 @@ import ru.vasilyev.model.Route;
 
 @Stateless
 @TransactionManagement(TransactionManagementType.CONTAINER)
-public class RouteMySqlDao extends AbstractMySqlDao<Route> {
+public class RouteDao extends AbstractDao<Route> {
 
 
     public void insertEntity(Route entity) {
@@ -35,7 +35,7 @@ public class RouteMySqlDao extends AbstractMySqlDao<Route> {
 
         int routeID;
 
-        try (SqlSession session = myBatisMysqlSessionFactory.getSqlSessionFactory().openSession()) {
+        try (SqlSession session = mybatisSessionFactory.getSqlSessionFactory().openSession()) {
             RouteMysqlMapper routeMapper = session.getMapper(RouteMysqlMapper.class);
 
             routeID = routeMapper.findRouteIDByRouteCode(code);

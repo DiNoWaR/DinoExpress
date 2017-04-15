@@ -14,7 +14,7 @@ import java.io.Reader;
 @Named("myBatisMysqlSessionFactory")
 @Singleton
 @Getter
-public class MyBatisMysqlSessionFactory implements GenericMybatisSessionFactory {
+public class MyBatisMysqlSessionFactory implements MybatisSessionFactory {
 
     private SqlSessionFactory sqlSessionFactory;
 

@@ -1,4 +1,4 @@
-package ru.vasilyev.dao.mysqldao;
+package ru.vasilyev.dao;
 
 
 import java.util.Collection;
@@ -13,12 +13,12 @@ import ru.vasilyev.wrappers.TrainsByStationsAndDateWrapper;
 
 @Stateless
 @TransactionManagement(TransactionManagementType.CONTAINER)
-public class TrainMySqlDao extends AbstractMySqlDao<Train> {
+public class TrainDao extends AbstractDao<Train> {
 
 
     public void insertEntity(Train entity) {
 
-        try (SqlSession session = myBatisMysqlSessionFactory.getSqlSessionFactory().openSession()) {
+        try (SqlSession session = mybatisSessionFactory.getSqlSessionFactory().openSession()) {
             TrainMysqlMapper trainMapper = session.getMapper(TrainMysqlMapper.class);
             trainMapper.insertEntity(entity);
 
@@ -41,7 +41,7 @@ public class TrainMySqlDao extends AbstractMySqlDao<Train> {
 
         int trainID;
 
-        try (SqlSession session = myBatisMysqlSessionFactory.getSqlSessionFactory().openSession()) {
+        try (SqlSession session = mybatisSessionFactory.getSqlSessionFactory().openSession()) {
             TrainMysqlMapper trainMapper = session.getMapper(TrainMysqlMapper.class);
 
             trainID = trainMapper.findTrainByName(name);
@@ -55,7 +55,7 @@ public class TrainMySqlDao extends AbstractMySqlDao<Train> {
 
         List<TrainsByStationsAndDateView> trains;
 
-        try (SqlSession session = myBatisMysqlSessionFactory.getSqlSessionFactory().openSession()) {
+        try (SqlSession session = mybatisSessionFactory.getSqlSessionFactory().openSession()) {
 
             TrainMysqlMapper trainMapper = session.getMapper(TrainMysqlMapper.class);
 

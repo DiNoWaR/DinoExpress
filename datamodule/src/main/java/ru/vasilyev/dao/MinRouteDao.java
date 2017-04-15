@@ -1,4 +1,4 @@
-package ru.vasilyev.dao.mysqldao;
+package ru.vasilyev.dao;
 
 
 import java.util.Collection;
@@ -13,11 +13,11 @@ import javax.ejb.TransactionManagementType;
 
 @Stateless
 @TransactionManagement(TransactionManagementType.CONTAINER)
-public class MinRouteMySqlDao extends AbstractMySqlDao<MinRoute> {
+public class MinRouteDao extends AbstractDao<MinRoute> {
 
     public void insertEntity(MinRoute entity) {
 
-        try (SqlSession session = myBatisMysqlSessionFactory.getSqlSessionFactory().openSession()) {
+        try (SqlSession session = mybatisSessionFactory.getSqlSessionFactory().openSession()) {
             MinRouteMysqlMapper minRouteMapper = session.getMapper(MinRouteMysqlMapper.class);
             minRouteMapper.insertEntity(entity);
         }

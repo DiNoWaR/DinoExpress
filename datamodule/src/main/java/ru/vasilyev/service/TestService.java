@@ -1,9 +1,9 @@
 package ru.vasilyev.service;
 
 
-import ru.vasilyev.dao.mysqldao.StationMySqlDao;
-import ru.vasilyev.dao.mysqldao.TrainMySqlDao;
-import ru.vasilyev.dao.mysqldao.WagonTypeMySqlDao;
+import ru.vasilyev.dao.StationDao;
+import ru.vasilyev.dao.TrainDao;
+import ru.vasilyev.dao.WagonTypeDao;
 import ru.vasilyev.model.Station;
 import ru.vasilyev.views.TrainsByStationsAndDateView;
 import ru.vasilyev.model.WagonType;
@@ -18,13 +18,13 @@ import java.util.List;
 public class TestService {
 
     @Inject
-    private WagonTypeMySqlDao wagonTypeMysqlDao;
+    private WagonTypeDao wagonTypeMysqlDao;
 
     @Inject
-    private StationMySqlDao stationDao;
+    private StationDao stationDao;
 
     @Inject
-    private TrainMySqlDao trainDao;
+    private TrainDao trainDao;
 
 
     public void insertWagonType(WagonType wagonType) {

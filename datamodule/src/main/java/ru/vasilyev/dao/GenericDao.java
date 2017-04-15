@@ -1,4 +1,4 @@
-package ru.vasilyev.dao.genericdao;
+package ru.vasilyev.dao;
 
 
 import java.util.Collection;

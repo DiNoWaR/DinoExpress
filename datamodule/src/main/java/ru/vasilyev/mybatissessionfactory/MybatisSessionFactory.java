@@ -5,7 +5,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 
 import java.io.IOException;
 
-public interface GenericMybatisSessionFactory {
+public interface MybatisSessionFactory {
 
     void init() throws IOException;
 

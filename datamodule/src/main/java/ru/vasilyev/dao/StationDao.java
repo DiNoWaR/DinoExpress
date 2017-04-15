@@ -1,4 +1,4 @@
-package ru.vasilyev.dao.mysqldao;
+package ru.vasilyev.dao;
 
 
 import org.apache.ibatis.session.SqlSession;
@@ -13,7 +13,7 @@ import java.util.List;
 
 @Stateless
 @TransactionManagement(TransactionManagementType.CONTAINER)
-public class StationMySqlDao extends AbstractMySqlDao<Station> {
+public class StationDao extends AbstractDao<Station> {
 
 
     public void insertEntity(Station entity) {
@@ -26,7 +26,7 @@ public class StationMySqlDao extends AbstractMySqlDao<Station> {
 
     public List<Station> getAllEntities() {
 
-        try (SqlSession session = myBatisMysqlSessionFactory.getSqlSessionFactory().openSession()) {
+        try (SqlSession session = mybatisSessionFactory.getSqlSessionFactory().openSession()) {
             StationMysqlMapper stationMapper = session.getMapper(StationMysqlMapper.class);
             return stationMapper.getAllEntities();
         }
@@ -40,7 +40,7 @@ public class StationMySqlDao extends AbstractMySqlDao<Station> {
 
         int stationID;
 
-        try (SqlSession session = myBatisMysqlSessionFactory.getSqlSessionFactory().openSession()) {
+        try (SqlSession session = mybatisSessionFactory.getSqlSessionFactory().openSession()) {
             StationMysqlMapper trainMapper = session.getMapper(StationMysqlMapper.class);
 
             stationID = trainMapper.findStationByName(name);

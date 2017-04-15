@@ -1,4 +1,4 @@
-package ru.vasilyev.dao.mysqldao;
+package ru.vasilyev.dao;
 
 
 import java.util.Collection;
@@ -11,7 +11,7 @@ import ru.vasilyev.model.Seat;
 
 @Stateless
 @TransactionManagement(TransactionManagementType.CONTAINER)
-public class SeatMySqlDao extends AbstractMySqlDao<Seat> {
+public class SeatDao extends AbstractDao<Seat> {
 
 
     public void insertEntity(Seat entity) {
