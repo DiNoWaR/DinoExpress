@@ -1,7 +1,7 @@
-package ru.vasilyev.servlets;
+package ru.vasilyev.servlet;
 
 
-import ru.vasilyev.util.Generator;
+import ru.vasilyev.service.GeneratorService;
 
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
@@ -13,7 +13,7 @@ import java.io.IOException;
 public class ConstructorServlet extends HttpServlet {
 
     @EJB
-    private Generator generator;
+    private GeneratorService generator;
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

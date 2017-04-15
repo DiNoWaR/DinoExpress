@@ -1,4 +1,4 @@
-package ru.vasilyev.servlets;
+package ru.vasilyev.servlet;
 
 
 import ru.vasilyev.model.WagonType;

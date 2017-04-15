@@ -1,10 +1,9 @@
-package ru.vasilyev.util;
+package ru.vasilyev.service;
 
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import javax.ejb.EJB;
 
 import javax.ejb.Singleton;
 import javax.ejb.Startup;
@@ -12,6 +11,7 @@ import javax.ejb.TransactionAttribute;
 import javax.ejb.TransactionAttributeType;
 import javax.ejb.TransactionManagement;
 import javax.ejb.TransactionManagementType;
+import javax.inject.Inject;
 
 import ru.vasilyev.dao.MinRouteDao;
 import ru.vasilyev.dao.RouteDao;
@@ -28,27 +28,27 @@ import ru.vasilyev.model.WagonType;
 @Singleton
 @Startup
 @TransactionManagement(TransactionManagementType.CONTAINER)
-public class Generator {
+public class GeneratorService {
 
-    @EJB
+    @Inject
     private WagonTypeDao wagonTypeMysqlDao;
 
-    @EJB
+    @Inject
     private StationDao stationDao;
 
-    @EJB
+    @Inject
     private TrainDao trainDao;
 
-    @EJB
+    @Inject
     private SeatDao seatDao;
 
-    @EJB
+    @Inject
     private WagonDao wagonDao;
 
-    @EJB
+    @Inject
     private RouteDao routeDao;
 
-    @EJB
+    @Inject
     private MinRouteDao minRouteDao;
 
 

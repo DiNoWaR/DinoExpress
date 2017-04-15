@@ -6,7 +6,7 @@
 
     <servlet>
         <servlet-name>testServlet</servlet-name>
-        <servlet-class>ru.vasilyev.servlets.TestServlet</servlet-class>
+        <servlet-class>ru.vasilyev.servlet.TestServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
@@ -16,7 +16,7 @@
 
     <servlet>
         <servlet-name>insertServlet</servlet-name>
-        <servlet-class>ru.vasilyev.servlets.TestInsertServlet</servlet-class>
+        <servlet-class>ru.vasilyev.servlet.TestInsertServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
