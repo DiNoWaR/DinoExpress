@@ -37,7 +37,6 @@ WHERE src.RouteCode = dest.RouteCode and src.DepartureDate between '2017-07-31' 
 
 ##Find stations, which certain route passed
 SELECT
-  r.RouteCode,
   s1.name AS SourceStation,
   s2.name AS DestStation,
   mr.DepartureDate,
