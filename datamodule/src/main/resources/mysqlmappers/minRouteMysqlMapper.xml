@@ -4,7 +4,8 @@
 
 <mapper namespace="ru.vasilyev.mappers.mysqlmappers.MinRouteMysqlMapper">
 
-    <insert id="insertEntity" parameterType="minRoute">
+    <insert id="insertEntity"
+            parameterType="minRoute">
 
         INSERT INTO Minroute (StationFrom, StationTo, DepartureDate, ArrivalDate, Train, Route, Sequence)
         VALUES (#{stationFrom},
@@ -30,6 +31,5 @@
             #{element.sequence})
         </foreach>
     </insert>
-
 
 </mapper>

@@ -4,8 +4,8 @@ package ru.vasilyev.dao;
 import org.apache.ibatis.session.SqlSession;
 import ru.vasilyev.mappers.mysqlmappers.TrainMysqlMapper;
 import ru.vasilyev.model.Train;
-import ru.vasilyev.views.TrainsByStationsAndDateView;
-import ru.vasilyev.wrappers.TrainsByStationsAndDateWrapper;
+import ru.vasilyev.views.RoutesByStationsAndDateView;
+import ru.vasilyev.wrappers.RoutesByStationsAndDateWrapper;
 
 import javax.ejb.*;
 import java.util.Collection;
@@ -50,17 +50,4 @@ public class TrainDao extends AbstractDao<Train> {
         return trainID;
     }
 
-    @TransactionAttribute(TransactionAttributeType.NOT_SUPPORTED)
-    public List<TrainsByStationsAndDateView> findTrainsByStationsAndDate(TrainsByStationsAndDateWrapper wrapper) {
-
-        List<TrainsByStationsAndDateView> trains;
-
-        try (SqlSession session = mybatisSessionFactory.getSqlSessionFactory().openSession()) {
-
-            TrainMysqlMapper trainMapper = session.getMapper(TrainMysqlMapper.class);
-
-            trains = trainMapper.findTrainsByStationsAndDate(wrapper);
-        }
-        return trains;
-    }
 }

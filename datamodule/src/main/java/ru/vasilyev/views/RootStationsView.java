@@ -1,4 +1,4 @@
-package ru.vasilyev.model;
+package ru.vasilyev.views;
 
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -10,15 +10,12 @@ import java.util.Date;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode(callSuper = false)
-public class MinRoute extends BaseObject {
+@EqualsAndHashCode
+public class RootStationsView {
 
-    private int stationFrom;
-    private int stationTo;
+    private String srcStation;
+    private String destStation;
     private Date departureDate;
     private Date arrivalDate;
-    private int train;
-    private int route;
-    private int sequence;
 
 }

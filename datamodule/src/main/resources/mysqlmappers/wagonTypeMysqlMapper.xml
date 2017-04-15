@@ -4,7 +4,8 @@
 
 <mapper namespace="ru.vasilyev.mappers.mysqlmappers.WagonTypeMysqlMapper">
 
-    <insert id="insertEntity" parameterType="wagonType">
+    <insert id="insertEntity"
+            parameterType="wagonType">
         INSERT INTO WagonType (ClassCode, Description, WagonTypeCoefficient)
         VALUES (#{classCode}, #{description}, #{wagonTypeCoefficient});
     </insert>
@@ -18,8 +19,8 @@
         </foreach>
     </insert>
 
-
-    <select id="getAllEntities" resultMap="wagonTypesMap">
+    <select id="getAllEntities"
+            resultMap="wagonTypesMap">
         SELECT
             WT.Id,
             WT.ClassCode,

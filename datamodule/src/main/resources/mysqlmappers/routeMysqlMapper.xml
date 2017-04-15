@@ -4,11 +4,71 @@
 
 <mapper namespace="ru.vasilyev.mappers.mysqlmappers.RouteMysqlMapper">
 
-    <select id="findRouteIDByRouteCode" resultType="int" statementType="PREPARED" parameterType="String">
-        SELECT
-        r.Id
+    <select id="findRouteIDByRouteCode"
+            resultType="int"
+            statementType="PREPARED"
+            parameterType="String">
+        SELECT r.Id
         FROM route r
         WHERE r.RouteCode = #{routeCode};
+    </select>
+
+    <select id="findStationsWhichRoutePasses"
+            resultType="rootStationsView"
+            statementType="PREPARED"
+            parameterType="String">
+        SELECT
+            s1.name AS SourceStation,
+            s2.name AS DestStation,
+            mr.DepartureDate,
+            mr.ArrivalDate
+        FROM minroute mr
+            JOIN route r ON mr.Route = r.Id
+            JOIN station s1 ON mr.StationFrom = s1.Id
+            JOIN station s2 ON mr.StationTo = s2.Id
+        WHERE r.RouteCode = #{routeCode}
+        ORDER BY mr.Sequence;
+    </select>
+
+    <select id="findRoutesByStationsAndDate"
+            resultType="routesByStationsAndDateView"
+            statementType="PREPARED"
+            parameterType="routesByStationsAndDateWrapper">
+
+        SELECT
+            src.RouteCode,
+            src.srcStation,
+            dest.destStation,
+            src.DepartureDate,
+            dest.ArrivalDate,
+            src.srcSequence,
+            destSequence
+        FROM (
+                 SELECT
+                     r.RouteCode,
+                     s1.Name     AS SrcStation,
+                     mr.DepartureDate,
+                     mr.ArrivalDate,
+                     mr.Sequence AS SrcSequence
+                 FROM minroute mr
+                     JOIN route r ON mr.Route = r.Id
+                     JOIN station s1 ON mr.StationFrom = s1.Id
+                     JOIN train t ON mr.Train = t.Id
+                 WHERE s1.name = #{srcStation}) AS src
+            JOIN (
+                     SELECT
+                         r.RouteCode,
+                         s2.Name     AS DestStation,
+                         mr.DepartureDate,
+                         mr.ArrivalDate,
+                         mr.Sequence AS DestSequence
+                     FROM minroute mr
+                         JOIN route r ON mr.Route = r.Id
+                         JOIN station s2 ON mr.StationTo = s2.Id
+                         JOIN train t ON mr.Train = t.Id
+                     WHERE s2.name = #{destStation}) AS dest
+        WHERE src.RouteCode = dest.RouteCode
+              AND src.DepartureDate BETWEEN #{journeyDate} - INTERVAL 1 DAY AND #{journeyDate} + INTERVAL 1 DAY;
     </select>
 
 </mapper>

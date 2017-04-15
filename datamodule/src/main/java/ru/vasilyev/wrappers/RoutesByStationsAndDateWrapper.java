@@ -9,7 +9,7 @@ import java.util.Date;
 @Getter
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = false)
-public class TrainsByStationsAndDateWrapper {
+public class RoutesByStationsAndDateWrapper {
 
     private final String srcStation;
     private final String destStation;

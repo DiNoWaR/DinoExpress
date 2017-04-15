@@ -4,7 +4,8 @@
 
 <mapper namespace="ru.vasilyev.mappers.mysqlmappers.StationMysqlMapper">
 
-    <insert id="insertEntity" parameterType="station">
+    <insert id="insertEntity"
+            parameterType="station">
         INSERT INTO Station (Name, Latitude, Longitude)
         VALUES (#{name}, #{latitude}, #{longitude});
     </insert>
@@ -18,14 +19,18 @@
         </foreach>
     </insert>
 
-    <select id="findStationByName" statementType="PREPARED" parameterType="String" resultType="int" >
+    <select id="findStationByName"
+            statementType="PREPARED"
+            parameterType="String"
+            resultType="int" >
         SELECT
         s.Id
         FROM station s
         WHERE s.Name = #{name};
     </select>
 
-    <select id="getAllEntities" resultMap="stationsMap">
+    <select id="getAllEntities"
+            resultMap="stationsMap">
         SELECT
         s.Id,
         s.Name,

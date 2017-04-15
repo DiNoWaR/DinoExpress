@@ -2,9 +2,9 @@ package ru.vasilyev.servlet;
 
 
 import ru.vasilyev.model.Station;
-import ru.vasilyev.views.TrainsByStationsAndDateView;
+import ru.vasilyev.views.RoutesByStationsAndDateView;
 import ru.vasilyev.model.WagonType;
-import ru.vasilyev.wrappers.TrainsByStationsAndDateWrapper;
+import ru.vasilyev.wrappers.RoutesByStationsAndDateWrapper;
 import ru.vasilyev.service.TestService;
 
 import javax.inject.Inject;
@@ -41,17 +41,17 @@ public class TestServlet extends HttpServlet {
         Date date = convertDateFromString("2017-08-01");
 
         //
-        TrainsByStationsAndDateWrapper wrapper = new TrainsByStationsAndDateWrapper("Nizniy Novgorod", "Saint-Petersburg", date);
+        RoutesByStationsAndDateWrapper wrapper = new RoutesByStationsAndDateWrapper("Nizniy Novgorod", "Saint-Petersburg", date);
 
         //
-        List<TrainsByStationsAndDateView> trains = testService.findTrainsByStationsAndDate(wrapper);
+        List<RoutesByStationsAndDateView> routes = testService.findTrainsByStationsAndDate(wrapper);
 
         String greetings = "Hello Dino";
 
         httpSession.setAttribute("greetings", greetings);
         httpSession.setAttribute("wagonTypes", wagonTypes);
         httpSession.setAttribute("stations", stations);
-        httpSession.setAttribute("trains", trains);
+        httpSession.setAttribute("routes", routes);
 
         String indexJsp = "/jsp/index.jsp";
 

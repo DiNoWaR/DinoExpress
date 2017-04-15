@@ -46,14 +46,14 @@
 </form>
 
 <div id="trainResults">
-    <c:forEach var="train" items="${trains}">
-        <c:out value="${train.routeCode}"/>
-        <c:out value="${train.srcStation}"/>
-        <c:out value="${train.destStation}"/>
-        <c:out value="${train.departureDate}"/>
-        <c:out value="${train.arrivalDate}"/>
-        <c:out value="${train.srcSequence}"/>
-        <c:out value="${train.destSequence}"/>
+    <c:forEach var="route" items="${routes}">
+        <c:out value="${route.routeCode}"/>
+        <c:out value="${route.srcStation}"/>
+        <c:out value="${route.destStation}"/>
+        <c:out value="${route.departureDate}"/>
+        <c:out value="${route.arrivalDate}"/>
+        <c:out value="${route.srcSequence}"/>
+        <c:out value="${route.destSequence}"/>
     </c:forEach>
 </div>
 

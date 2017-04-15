@@ -1,13 +1,14 @@
 package ru.vasilyev.service;
 
 
+import ru.vasilyev.dao.RouteDao;
 import ru.vasilyev.dao.StationDao;
 import ru.vasilyev.dao.TrainDao;
 import ru.vasilyev.dao.WagonTypeDao;
 import ru.vasilyev.model.Station;
-import ru.vasilyev.views.TrainsByStationsAndDateView;
+import ru.vasilyev.views.RoutesByStationsAndDateView;
 import ru.vasilyev.model.WagonType;
-import ru.vasilyev.wrappers.TrainsByStationsAndDateWrapper;
+import ru.vasilyev.wrappers.RoutesByStationsAndDateWrapper;
 
 
 import javax.ejb.Stateless;
@@ -26,6 +27,8 @@ public class TestService {
     @Inject
     private TrainDao trainDao;
 
+    @Inject
+    private RouteDao routeDao;
 
     public void insertWagonType(WagonType wagonType) {
 
@@ -43,8 +46,8 @@ public class TestService {
         return stationDao.getAllEntities();
     }
 
-    public List<TrainsByStationsAndDateView> findTrainsByStationsAndDate(TrainsByStationsAndDateWrapper wrapper) {
-        return trainDao.findTrainsByStationsAndDate(wrapper);
+    public List<RoutesByStationsAndDateView> findTrainsByStationsAndDate(RoutesByStationsAndDateWrapper wrapper) {
+        return routeDao.findTrainsByStationsAndDate(wrapper);
     }
 
 }
