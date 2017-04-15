@@ -1,4 +1,4 @@
-package ru.vasilyev.model;
+package ru.vasilyev.views;
 
 
 import lombok.EqualsAndHashCode;
@@ -10,7 +10,7 @@ import java.util.Date;
 @Getter
 @Setter
 @EqualsAndHashCode
-public class TrainsResultByStationsAndDataView {
+public class TrainsByStationsAndDateView {
 
     private String routeCode;
     private String srcStation;

@@ -6,6 +6,8 @@
 
     <typeAliases>
         <package name="ru.vasilyev.model"/>
+        <package name="ru.vasilyev.wrappers"/>
+        <package name="ru.vasilyev.views"/>
     </typeAliases>
 
     <environments default="mySqlDevelopment">

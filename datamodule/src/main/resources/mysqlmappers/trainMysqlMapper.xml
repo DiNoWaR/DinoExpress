@@ -4,11 +4,67 @@
 
 <mapper namespace="ru.vasilyev.mappers.mysqlmappers.TrainMysqlMapper">
 
-    <select id="findTrainByName" resultType="int" statementType="PREPARED" parameterType="String">
-        SELECT
-        t.Id
+    <select id="findTrainByName"
+            resultType="int"
+            statementType="PREPARED"
+            parameterType="String">
+
+        SELECT t.Id
         FROM train t
         WHERE t.Name = #{name};
     </select>
+
+    <select id="findTrainsByStationsAndDate"
+            resultType="TrainsByStationsAndDateView"
+            statementType="PREPARED"
+            parameterType="trainsByStationsAndDateWrapper">
+
+        SELECT
+            src.RouteCode,
+            src.srcStation,
+            dest.destStation,
+            src.DepartureDate,
+            dest.ArrivalDate,
+            src.srcSequence,
+            destSequence
+        FROM (
+                 SELECT
+                     r.RouteCode,
+                     s1.Name     AS SrcStation,
+                     mr.DepartureDate,
+                     mr.ArrivalDate,
+                     mr.Sequence AS SrcSequence
+                 FROM minroute mr
+                     JOIN route r ON mr.Route = r.Id
+                     JOIN station s1 ON mr.StationFrom = s1.Id
+                     JOIN train t ON mr.Train = t.Id
+                 WHERE s1.name = #{srcStation}) AS src
+            JOIN (
+                     SELECT
+                         r.RouteCode,
+                         s2.Name     AS DestStation,
+                         mr.DepartureDate,
+                         mr.ArrivalDate,
+                         mr.Sequence AS DestSequence
+                     FROM minroute mr
+                         JOIN route r ON mr.Route = r.Id
+                         JOIN station s2 ON mr.StationTo = s2.Id
+                         JOIN train t ON mr.Train = t.Id
+                     WHERE s2.name = #{destStation}) AS dest
+        WHERE src.RouteCode = dest.RouteCode
+        AND src.DepartureDate BETWEEN #{journeyDate} - INTERVAL 1 DAY AND #{journeyDate} + INTERVAL 1 DAY;
+    </select>
+
+
+    <resultMap id="trainsResultsByStationAndDateMap" type="trainsByStationsAndDateView">
+        <result column="RouteCode" property="routeCode"/>
+        <result column="SrcStation" property="srcStation"/>
+        <result column="DestStation" property="destStation"/>
+        <result column="DepartureDate" property="departureDate"/>
+        <result column="ArrivalDate" property="arrivalDate"/>
+        <result column="SrcSequence" property="srcSequence"/>
+        <result column="DestSequence" property="destSequence"/>
+    </resultMap>
+
 
 </mapper>

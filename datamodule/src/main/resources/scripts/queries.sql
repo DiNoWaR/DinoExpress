@@ -11,10 +11,10 @@ SELECT
 FROM (
        SELECT
          r.RouteCode,
-         s1.Name     AS srcStation,
+         s1.Name     AS SrcStation,
          mr.DepartureDate,
          mr.ArrivalDate,
-         mr.Sequence AS srcSequence
+         mr.Sequence AS SrcSequence
        FROM minroute mr
          JOIN route r ON mr.Route = r.Id
          JOIN station s1 ON mr.StationFrom = s1.Id
@@ -23,16 +23,17 @@ FROM (
   JOIN (
          SELECT
            r.RouteCode,
-           s2.Name     AS destStation,
+           s2.Name     AS DestStation,
            mr.DepartureDate,
            mr.ArrivalDate,
-           mr.Sequence AS destSequence
+           mr.Sequence AS DestSequence
          FROM minroute mr
            JOIN route r ON mr.Route = r.Id
            JOIN station s2 ON mr.StationTo = s2.Id
            JOIN train t ON mr.Train = t.Id
          WHERE s2.name = 'Saint-Petersburg') AS dest
-WHERE src.RouteCode = dest.RouteCode and src.DepartureDate > '2017-07-01';
+WHERE src.RouteCode = dest.RouteCode and src.DepartureDate between '2017-07-31' and '2017-08-02';
+
 
 ##Find stations, which certain route passed
 SELECT

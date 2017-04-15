@@ -2,9 +2,12 @@ package ru.vasilyev.service;
 
 
 import ru.vasilyev.dao.mysqldao.StationMySqlDao;
+import ru.vasilyev.dao.mysqldao.TrainMySqlDao;
 import ru.vasilyev.dao.mysqldao.WagonTypeMySqlDao;
 import ru.vasilyev.model.Station;
+import ru.vasilyev.views.TrainsByStationsAndDateView;
 import ru.vasilyev.model.WagonType;
+import ru.vasilyev.wrappers.TrainsByStationsAndDateWrapper;
 
 
 import javax.ejb.Stateless;
@@ -20,9 +23,11 @@ public class TestService {
     @Inject
     private StationMySqlDao stationDao;
 
+    @Inject
+    private TrainMySqlDao trainDao;
+
 
     public void insertWagonType(WagonType wagonType) {
-
 
     }
 
@@ -36,6 +41,10 @@ public class TestService {
 
     public List<Station> getAllStations() {
         return stationDao.getAllEntities();
+    }
+
+    public List<TrainsByStationsAndDateView> findTrainsByStationsAndDate(TrainsByStationsAndDateWrapper wrapper) {
+        return trainDao.findTrainsByStationsAndDate(wrapper);
     }
 
 }

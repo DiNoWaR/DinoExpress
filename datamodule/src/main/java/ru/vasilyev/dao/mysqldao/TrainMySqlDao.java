@@ -3,14 +3,13 @@ package ru.vasilyev.dao.mysqldao;
 
 import java.util.Collection;
 import java.util.List;
-import javax.ejb.Stateless;
-import javax.ejb.TransactionManagement;
-import javax.ejb.TransactionManagementType;
+import javax.ejb.*;
 
 import org.apache.ibatis.session.SqlSession;
 import ru.vasilyev.mappers.mysqlmappers.TrainMysqlMapper;
 import ru.vasilyev.model.Train;
-import ru.vasilyev.model.TrainsResultByStationsAndDataView;
+import ru.vasilyev.views.TrainsByStationsAndDateView;
+import ru.vasilyev.wrappers.TrainsByStationsAndDateWrapper;
 
 @Stateless
 @TransactionManagement(TransactionManagementType.CONTAINER)
@@ -51,15 +50,16 @@ public class TrainMySqlDao extends AbstractMySqlDao<Train> {
         return trainID;
     }
 
-    public List<TrainsResultByStationsAndDataView> findTrainsByStationsAndData() {
+    @TransactionAttribute(TransactionAttributeType.NOT_SUPPORTED)
+    public List<TrainsByStationsAndDateView> findTrainsByStationsAndDate(TrainsByStationsAndDateWrapper wrapper) {
 
-        List<TrainsResultByStationsAndDataView> trains;
+        List<TrainsByStationsAndDateView> trains;
 
         try (SqlSession session = myBatisMysqlSessionFactory.getSqlSessionFactory().openSession()) {
 
             TrainMysqlMapper trainMapper = session.getMapper(TrainMysqlMapper.class);
 
-            trains = trainMapper.findTrainsByStationsAndData();
+            trains = trainMapper.findTrainsByStationsAndDate(wrapper);
         }
         return trains;
     }
