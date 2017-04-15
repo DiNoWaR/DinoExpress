@@ -4,10 +4,10 @@ package ru.vasilyev.dao;
 import org.apache.ibatis.session.SqlSession;
 import ru.vasilyev.mappers.mysqlmappers.TrainMysqlMapper;
 import ru.vasilyev.model.Train;
-import ru.vasilyev.views.RoutesByStationsAndDateView;
-import ru.vasilyev.wrappers.RoutesByStationsAndDateWrapper;
 
-import javax.ejb.*;
+import javax.ejb.Stateless;
+import javax.ejb.TransactionManagement;
+import javax.ejb.TransactionManagementType;
 import java.util.Collection;
 import java.util.List;
 

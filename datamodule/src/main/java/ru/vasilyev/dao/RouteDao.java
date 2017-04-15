@@ -2,7 +2,6 @@ package ru.vasilyev.dao;
 
 import org.apache.ibatis.session.SqlSession;
 import ru.vasilyev.mappers.mysqlmappers.RouteMysqlMapper;
-import ru.vasilyev.mappers.mysqlmappers.TrainMysqlMapper;
 import ru.vasilyev.model.Route;
 import ru.vasilyev.views.RootStationsView;
 import ru.vasilyev.views.RoutesByStationsAndDateView;
