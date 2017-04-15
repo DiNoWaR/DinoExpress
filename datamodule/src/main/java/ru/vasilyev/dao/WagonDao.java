@@ -1,12 +1,12 @@
 package ru.vasilyev.dao;
 
-import java.util.Collection;
-import java.util.List;
+import ru.vasilyev.model.Wagon;
+
 import javax.ejb.Stateless;
 import javax.ejb.TransactionManagement;
 import javax.ejb.TransactionManagementType;
-
-import ru.vasilyev.model.Wagon;
+import java.util.Collection;
+import java.util.List;
 
 @Stateless
 @TransactionManagement(TransactionManagementType.CONTAINER)

@@ -1,15 +1,15 @@
 package ru.vasilyev.dao;
 
 
-import java.util.Collection;
-import java.util.List;
-import javax.ejb.*;
-
 import org.apache.ibatis.session.SqlSession;
 import ru.vasilyev.mappers.mysqlmappers.TrainMysqlMapper;
 import ru.vasilyev.model.Train;
 import ru.vasilyev.views.TrainsByStationsAndDateView;
 import ru.vasilyev.wrappers.TrainsByStationsAndDateWrapper;
+
+import javax.ejb.*;
+import java.util.Collection;
+import java.util.List;
 
 @Stateless
 @TransactionManagement(TransactionManagementType.CONTAINER)

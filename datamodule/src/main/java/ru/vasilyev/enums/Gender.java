@@ -1,4 +1,4 @@
-package ru.vasilyev.model;
+package ru.vasilyev.enums;
 
 
 public enum Gender {

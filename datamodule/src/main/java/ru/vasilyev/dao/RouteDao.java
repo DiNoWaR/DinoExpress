@@ -1,14 +1,14 @@
 package ru.vasilyev.dao;
 
-import java.util.Collection;
-import java.util.List;
-import javax.ejb.Stateless;
-import javax.ejb.TransactionManagement;
-import javax.ejb.TransactionManagementType;
-
 import org.apache.ibatis.session.SqlSession;
 import ru.vasilyev.mappers.mysqlmappers.RouteMysqlMapper;
 import ru.vasilyev.model.Route;
+
+import javax.ejb.Stateless;
+import javax.ejb.TransactionManagement;
+import javax.ejb.TransactionManagementType;
+import java.util.Collection;
+import java.util.List;
 
 @Stateless
 @TransactionManagement(TransactionManagementType.CONTAINER)

@@ -1,8 +1,6 @@
 package ru.vasilyev.dao;
 
 
-import java.util.Collection;
-import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 import ru.vasilyev.mappers.mysqlmappers.MinRouteMysqlMapper;
 import ru.vasilyev.model.MinRoute;
@@ -10,6 +8,8 @@ import ru.vasilyev.model.MinRoute;
 import javax.ejb.Stateless;
 import javax.ejb.TransactionManagement;
 import javax.ejb.TransactionManagementType;
+import java.util.Collection;
+import java.util.List;
 
 @Stateless
 @TransactionManagement(TransactionManagementType.CONTAINER)

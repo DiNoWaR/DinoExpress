@@ -2,8 +2,8 @@ package ru.vasilyev.dao;
 
 
 import org.apache.ibatis.session.SqlSession;
-import ru.vasilyev.model.WagonType;
 import ru.vasilyev.mappers.mysqlmappers.WagonTypeMysqlMapper;
+import ru.vasilyev.model.WagonType;
 
 import javax.ejb.*;
 import java.util.Collection;

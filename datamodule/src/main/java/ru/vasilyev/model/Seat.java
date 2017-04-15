@@ -1,17 +1,17 @@
 package ru.vasilyev.model;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
 
 @Getter
-@Setter
 @AllArgsConstructor
-@NoArgsConstructor
 @EqualsAndHashCode(callSuper = false)
 public class Seat extends BaseObject {
 
-    private int number;
-    private boolean nearTable;
-    private boolean isVacant;
-    private Wagon wagon;
+    private final int number;
+    private final boolean nearTable;
+    private final boolean isVacant;
+    private final Wagon wagon;
 
 }

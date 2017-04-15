@@ -1,21 +1,22 @@
 package ru.vasilyev.model;
 
+import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+
 import java.util.Date;
-import lombok.*;
 
 @Getter
-@Setter
 @AllArgsConstructor
-@NoArgsConstructor
 @EqualsAndHashCode(callSuper = false)
 public class MinRoute extends BaseObject {
 
-    private int stationFrom;
-    private int stationTo;
-    private Date departureDate;
-    private Date arrivalDate;
-    private int train;
-    private int route;
-    private int sequence;
+    private final int stationFrom;
+    private final int stationTo;
+    private final Date departureDate;
+    private final Date arrivalDate;
+    private final int train;
+    private final int route;
+    private final int sequence;
 
 }

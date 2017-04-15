@@ -2,8 +2,8 @@ package ru.vasilyev.dao;
 
 
 import org.apache.ibatis.session.SqlSession;
-import ru.vasilyev.model.Station;
 import ru.vasilyev.mappers.mysqlmappers.StationMysqlMapper;
+import ru.vasilyev.model.Station;
 
 import javax.ejb.Stateless;
 import javax.ejb.TransactionManagement;

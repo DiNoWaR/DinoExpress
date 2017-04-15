@@ -1,16 +1,16 @@
 package ru.vasilyev.model;
 
+import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
-import lombok.Setter;
 
 @Getter
-@Setter
+@AllArgsConstructor
 @EqualsAndHashCode(callSuper = false)
 public class Station extends BaseObject {
 
-    private String name;
-    private double latitude;
-    private double longitude;
+    private final String name;
+    private final double latitude;
+    private final double longitude;
 
 }

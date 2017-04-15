@@ -1,22 +1,22 @@
 package ru.vasilyev.model;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
 
 import java.util.List;
 
 @Getter
-@Setter
 @AllArgsConstructor
-@NoArgsConstructor
 @EqualsAndHashCode(callSuper = false)
 public class Train extends BaseObject {
 
-    private String name;
-    private String manufacturer;
-    private int maxSpeed;
-    private boolean isHighSpeed;
-    private List<MinRoute> minRoutes;
-    private List<Wagon> wagons;
+    private final String name;
+    private final String manufacturer;
+    private final int maxSpeed;
+    private final boolean isHighSpeed;
+    private final List<MinRoute> minRoutes;
+    private final List<Wagon> wagons;
 
 
 }
