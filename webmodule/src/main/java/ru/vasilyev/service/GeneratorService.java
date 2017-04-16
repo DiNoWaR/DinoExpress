@@ -77,8 +77,8 @@ public class GeneratorService {
 
         for (MinRouteDTO item : minRoutesDTOList) {
 
-            int stationFromID = stationDao.findStationByName(item.getStationFrom());
-            int stationToID = stationDao.findStationByName(item.getStationTo());
+            int stationFromID = stationDao.findStationIdByName(item.getStationFrom());
+            int stationToID = stationDao.findStationIdByName(item.getStationTo());
             Date departureDate = item.getDepartureDate();
             Date arrivalDate = item.getArrivalDate();
             int sequence = item.getSequence();
