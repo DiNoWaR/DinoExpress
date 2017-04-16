@@ -36,7 +36,7 @@ public class StationDao extends AbstractDao<Station> {
 
     }
 
-    public int findStationByName(String name) {
+    public int findStationIdByName(String name) {
 
         int stationID;
 
