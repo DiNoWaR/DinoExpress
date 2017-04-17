@@ -43,7 +43,7 @@ public class StationDao extends AbstractDao<Station> {
         try (SqlSession session = mybatisSessionFactory.getSqlSessionFactory().openSession()) {
             StationMysqlMapper trainMapper = session.getMapper(StationMysqlMapper.class);
 
-            stationID = trainMapper.findStationByName(name);
+            stationID = trainMapper.findStationIdByName(name);
         }
         return stationID;
     }
