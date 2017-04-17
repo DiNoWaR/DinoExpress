@@ -30,6 +30,7 @@ public class TestService {
     @Inject
     private RouteDao routeDao;
 
+
     public void insertWagonType(WagonType wagonType) {
 
     }

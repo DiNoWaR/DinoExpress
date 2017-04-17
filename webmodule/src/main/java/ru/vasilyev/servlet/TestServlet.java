@@ -38,7 +38,7 @@ public class TestServlet extends HttpServlet {
         List<Station> stations = testService.getAllStations();
 
         //
-        Date date = convertDateFromString("2017-08-01");
+        Date date = convertStringToDate("2017-08-01", "yyyy-MM-dd");
 
         //
         RoutesByStationsAndDateWrapper wrapper = new RoutesByStationsAndDateWrapper("Nizniy Novgorod", "Saint-Petersburg", date);
@@ -60,13 +60,13 @@ public class TestServlet extends HttpServlet {
 
     }
 
-    private Date convertDateFromString(String str) {
+    private Date convertStringToDate(String str, String pattern) {
 
         Date resultDate = null;
 
         try {
 
-            SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+            SimpleDateFormat format = new SimpleDateFormat(pattern);
             resultDate = format.parse(str);
 
         } catch (ParseException e) {
