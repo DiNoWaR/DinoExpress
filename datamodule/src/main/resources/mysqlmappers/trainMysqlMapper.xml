@@ -4,7 +4,7 @@
 
 <mapper namespace="ru.vasilyev.mappers.mysqlmappers.TrainMysqlMapper">
 
-    <select id="findTrainByName"
+    <select id="findTrainIdByName"
             resultType="int"
             statementType="PREPARED"
             parameterType="String">

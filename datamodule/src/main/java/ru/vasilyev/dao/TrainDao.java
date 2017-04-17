@@ -37,14 +37,14 @@ public class TrainDao extends AbstractDao<Train> {
 
     }
 
-    public int findTrainByName(String name) {
+    public int findTrainIdByName(String name) {
 
         int trainID;
 
         try (SqlSession session = mybatisSessionFactory.getSqlSessionFactory().openSession()) {
             TrainMysqlMapper trainMapper = session.getMapper(TrainMysqlMapper.class);
 
-            trainID = trainMapper.findTrainByName(name);
+            trainID = trainMapper.findTrainIdByName(name);
 
         }
         return trainID;

@@ -6,6 +6,6 @@ import ru.vasilyev.model.Train;
 
 public interface TrainMysqlMapper extends GenericMapper<Train> {
 
-    int findTrainByName(String name);
+    int findTrainIdByName(String name);
 
 }

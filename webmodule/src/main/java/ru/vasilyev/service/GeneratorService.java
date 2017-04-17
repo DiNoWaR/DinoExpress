@@ -73,7 +73,7 @@ public class GeneratorService {
         List<MinRoute> minRoutes = new ArrayList<>();
 
         int routeCodeID = routeDao.findRouteIDByRouteCode(routeCode);
-        int trainId = trainDao.findTrainByName(trainName);
+        int trainId = trainDao.findTrainIdByName(trainName);
 
         for (MinRouteDTO item : minRoutesDTOList) {
 
