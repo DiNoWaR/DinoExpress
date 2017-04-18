@@ -13,11 +13,11 @@ import java.util.List;
 public class WagonDao extends AbstractDao<Wagon> {
 
 
-    public void insertEntity(Wagon entity) {
+    public void insertEntity(Wagon wagon) {
 
     }
 
-    public void insertCollectionOfEntity(Collection<Wagon> entities) {
+    public void insertCollectionOfEntity(Collection<Wagon> wagons) {
 
     }
 

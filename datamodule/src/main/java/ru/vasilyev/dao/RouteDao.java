@@ -16,7 +16,7 @@ import java.util.List;
 public class RouteDao extends AbstractDao<Route> {
 
 
-    public void insertEntity(Route entity) {
+    public void insertEntity(Route route) {
 
     }
 
@@ -32,14 +32,14 @@ public class RouteDao extends AbstractDao<Route> {
 
     }
 
-    public int findRouteIDByRouteCode(String code) {
+    public int findRouteIDByRouteCode(String routeCode) {
 
         int routeID;
 
         try (SqlSession session = mybatisSessionFactory.getSqlSessionFactory().openSession()) {
             RouteMysqlMapper routeMapper = session.getMapper(RouteMysqlMapper.class);
 
-            routeID = routeMapper.findRouteIDByRouteCode(code);
+            routeID = routeMapper.findRouteIDByRouteCode(routeCode);
 
         }
         return routeID;

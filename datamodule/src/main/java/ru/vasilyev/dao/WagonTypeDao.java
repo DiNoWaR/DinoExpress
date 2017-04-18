@@ -14,16 +14,16 @@ import java.util.List;
 public class WagonTypeDao extends AbstractDao<WagonType> {
 
 
-    public void insertEntity(WagonType entity) {
+    public void insertEntity(WagonType wagonType) {
 
     }
 
     @TransactionAttribute(TransactionAttributeType.REQUIRED)
-    public void insertCollectionOfEntity(Collection<WagonType> entities) {
+    public void insertCollectionOfEntity(Collection<WagonType> wagonTypes) {
 
         try (SqlSession session = mybatisSessionFactory.getSqlSessionFactory().openSession()) {
             WagonTypeMysqlMapper wagonTypeMapper = session.getMapper(WagonTypeMysqlMapper.class);
-            wagonTypeMapper.insertCollectionOfEntity(entities);
+            wagonTypeMapper.insertCollectionOfEntity(wagonTypes);
 
         }
 

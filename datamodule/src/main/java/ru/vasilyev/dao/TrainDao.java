@@ -16,16 +16,16 @@ import java.util.List;
 public class TrainDao extends AbstractDao<Train> {
 
 
-    public void insertEntity(Train entity) {
+    public void insertEntity(Train train) {
 
         try (SqlSession session = mybatisSessionFactory.getSqlSessionFactory().openSession()) {
             TrainMysqlMapper trainMapper = session.getMapper(TrainMysqlMapper.class);
-            trainMapper.insertEntity(entity);
+            trainMapper.insertEntity(train);
 
         }
     }
 
-    public void insertCollectionOfEntity(Collection<Train> entities) {
+    public void insertCollectionOfEntity(Collection<Train> trains) {
 
     }
 

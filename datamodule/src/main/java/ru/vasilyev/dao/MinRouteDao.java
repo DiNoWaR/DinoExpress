@@ -15,11 +15,11 @@ import java.util.List;
 @TransactionManagement(TransactionManagementType.CONTAINER)
 public class MinRouteDao extends AbstractDao<MinRoute> {
 
-    public void insertEntity(MinRoute entity) {
+    public void insertEntity(MinRoute minRoute) {
 
         try (SqlSession session = mybatisSessionFactory.getSqlSessionFactory().openSession()) {
             MinRouteMysqlMapper minRouteMapper = session.getMapper(MinRouteMysqlMapper.class);
-            minRouteMapper.insertEntity(entity);
+            minRouteMapper.insertEntity(minRoute);
         }
 
     }

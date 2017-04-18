@@ -16,11 +16,11 @@ import java.util.List;
 public class StationDao extends AbstractDao<Station> {
 
 
-    public void insertEntity(Station entity) {
+    public void insertEntity(Station station) {
 
     }
 
-    public void insertCollectionOfEntity(Collection<Station> entities) {
+    public void insertCollectionOfEntity(Collection<Station> stations) {
 
     }
 

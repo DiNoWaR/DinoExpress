@@ -14,11 +14,11 @@ import java.util.List;
 public class SeatDao extends AbstractDao<Seat> {
 
 
-    public void insertEntity(Seat entity) {
+    public void insertEntity(Seat seat) {
 
     }
 
-    public void insertCollectionOfEntity(Collection<Seat> entities) {
+    public void insertCollectionOfEntity(Collection<Seat> seats) {
 
 
     }
