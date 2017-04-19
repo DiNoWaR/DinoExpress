@@ -1,7 +1,7 @@
 package ru.vasilyev.dao;
 
 import org.apache.ibatis.session.SqlSession;
-import ru.vasilyev.mappers.mysqlmappers.RouteMysqlMapper;
+import ru.vasilyev.mappers.RouteMapper;
 import ru.vasilyev.model.Route;
 import ru.vasilyev.views.RootStationsView;
 import ru.vasilyev.views.RoutesByStationsAndDateView;
@@ -37,7 +37,7 @@ public class RouteDao extends AbstractDao<Route> {
         int routeID;
 
         try (SqlSession session = mybatisSessionFactory.getSqlSessionFactory().openSession()) {
-            RouteMysqlMapper routeMapper = session.getMapper(RouteMysqlMapper.class);
+            RouteMapper routeMapper = session.getMapper(RouteMapper.class);
 
             routeID = routeMapper.findRouteIDByRouteCode(routeCode);
 
@@ -52,7 +52,7 @@ public class RouteDao extends AbstractDao<Route> {
 
         try (SqlSession session = mybatisSessionFactory.getSqlSessionFactory().openSession()) {
 
-            RouteMysqlMapper routeMysqlMapper = session.getMapper(RouteMysqlMapper.class);
+            RouteMapper routeMysqlMapper = session.getMapper(RouteMapper.class);
 
             routes = routeMysqlMapper.findRoutesByStationsAndDate(wrapper);
         }
@@ -66,7 +66,7 @@ public class RouteDao extends AbstractDao<Route> {
 
         try (SqlSession session = mybatisSessionFactory.getSqlSessionFactory().openSession()) {
 
-            RouteMysqlMapper routeMysqlMapper = session.getMapper(RouteMysqlMapper.class);
+            RouteMapper routeMysqlMapper = session.getMapper(RouteMapper.class);
 
             rootStationsViewList = routeMysqlMapper.findStationsWhichRoutePasses(routeCode);
         }

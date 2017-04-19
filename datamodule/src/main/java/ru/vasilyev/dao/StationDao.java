@@ -2,7 +2,7 @@ package ru.vasilyev.dao;
 
 
 import org.apache.ibatis.session.SqlSession;
-import ru.vasilyev.mappers.mysqlmappers.StationMysqlMapper;
+import ru.vasilyev.mappers.StationMapper;
 import ru.vasilyev.model.Station;
 
 import javax.ejb.Stateless;
@@ -27,7 +27,7 @@ public class StationDao extends AbstractDao<Station> {
     public List<Station> getAllEntities() {
 
         try (SqlSession session = mybatisSessionFactory.getSqlSessionFactory().openSession()) {
-            StationMysqlMapper stationMapper = session.getMapper(StationMysqlMapper.class);
+            StationMapper stationMapper = session.getMapper(StationMapper.class);
             return stationMapper.getAllEntities();
         }
     }
@@ -41,7 +41,7 @@ public class StationDao extends AbstractDao<Station> {
         int stationID;
 
         try (SqlSession session = mybatisSessionFactory.getSqlSessionFactory().openSession()) {
-            StationMysqlMapper trainMapper = session.getMapper(StationMysqlMapper.class);
+            StationMapper trainMapper = session.getMapper(StationMapper.class);
 
             stationID = trainMapper.findStationIdByName(name);
         }

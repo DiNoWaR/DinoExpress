@@ -2,7 +2,7 @@ package ru.vasilyev.dao;
 
 
 import org.apache.ibatis.session.SqlSession;
-import ru.vasilyev.mappers.mysqlmappers.TrainMysqlMapper;
+import ru.vasilyev.mappers.TrainMapper;
 import ru.vasilyev.model.Train;
 
 import javax.ejb.Stateless;
@@ -19,7 +19,7 @@ public class TrainDao extends AbstractDao<Train> {
     public void insertEntity(Train train) {
 
         try (SqlSession session = mybatisSessionFactory.getSqlSessionFactory().openSession()) {
-            TrainMysqlMapper trainMapper = session.getMapper(TrainMysqlMapper.class);
+            TrainMapper trainMapper = session.getMapper(TrainMapper.class);
             trainMapper.insertEntity(train);
 
         }
@@ -42,7 +42,7 @@ public class TrainDao extends AbstractDao<Train> {
         int trainID;
 
         try (SqlSession session = mybatisSessionFactory.getSqlSessionFactory().openSession()) {
-            TrainMysqlMapper trainMapper = session.getMapper(TrainMysqlMapper.class);
+            TrainMapper trainMapper = session.getMapper(TrainMapper.class);
 
             trainID = trainMapper.findTrainIdByName(name);
 

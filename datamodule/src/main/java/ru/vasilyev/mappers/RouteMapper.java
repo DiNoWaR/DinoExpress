@@ -1,4 +1,4 @@
-package ru.vasilyev.mappers.mysqlmappers;
+package ru.vasilyev.mappers;
 
 
 import ru.vasilyev.mappers.genericmapper.GenericMapper;
@@ -9,7 +9,7 @@ import ru.vasilyev.wrappers.RoutesByStationsAndDateWrapper;
 
 import java.util.List;
 
-public interface RouteMysqlMapper extends GenericMapper<Route> {
+public interface RouteMapper extends GenericMapper<Route> {
 
     int findRouteIDByRouteCode(String routeCode);
 

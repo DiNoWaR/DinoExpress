@@ -2,7 +2,7 @@ package ru.vasilyev.dao;
 
 
 import org.apache.ibatis.session.SqlSession;
-import ru.vasilyev.mappers.mysqlmappers.WagonTypeMysqlMapper;
+import ru.vasilyev.mappers.WagonTypeMapper;
 import ru.vasilyev.model.WagonType;
 
 import javax.ejb.*;
@@ -22,7 +22,7 @@ public class WagonTypeDao extends AbstractDao<WagonType> {
     public void insertCollectionOfEntity(Collection<WagonType> wagonTypes) {
 
         try (SqlSession session = mybatisSessionFactory.getSqlSessionFactory().openSession()) {
-            WagonTypeMysqlMapper wagonTypeMapper = session.getMapper(WagonTypeMysqlMapper.class);
+            WagonTypeMapper wagonTypeMapper = session.getMapper(WagonTypeMapper.class);
             wagonTypeMapper.insertCollectionOfEntity(wagonTypes);
 
         }
@@ -33,7 +33,7 @@ public class WagonTypeDao extends AbstractDao<WagonType> {
     public List<WagonType> getAllEntities() {
 
         try (SqlSession session = mybatisSessionFactory.getSqlSessionFactory().openSession()) {
-            WagonTypeMysqlMapper wagonTypeMapper = session.getMapper(WagonTypeMysqlMapper.class);
+            WagonTypeMapper wagonTypeMapper = session.getMapper(WagonTypeMapper.class);
             return wagonTypeMapper.getAllEntities();
         }
     }
