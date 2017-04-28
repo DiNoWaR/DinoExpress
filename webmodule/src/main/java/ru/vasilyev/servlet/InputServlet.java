@@ -1,6 +1,7 @@
 package ru.vasilyev.servlet;
 
 
+import ru.vasilyev.enums.JSPPath;
 import ru.vasilyev.model.Station;
 import ru.vasilyev.service.TestService;
 
@@ -25,7 +26,7 @@ public class InputServlet extends HttpServlet {
 
         request.setAttribute("stations", stations);
 
-        String indexJsp = "/jsp/inputfield.jsp";
+        String indexJsp = JSPPath.INPUT_FIELD_JSP.getValue();
 
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(indexJsp);
         dispatcher.forward(request, response);

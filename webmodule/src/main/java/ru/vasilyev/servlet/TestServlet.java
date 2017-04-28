@@ -1,6 +1,7 @@
 package ru.vasilyev.servlet;
 
 
+import ru.vasilyev.enums.JSPPath;
 import ru.vasilyev.model.Station;
 import ru.vasilyev.service.DateTimeConverter;
 import ru.vasilyev.views.RoutesByStationsAndDateView;
@@ -54,7 +55,7 @@ public class TestServlet extends HttpServlet {
         request.setAttribute("stations", stations);
         request.setAttribute("routes", routes);
 
-        String indexJsp = "/jsp/index.jsp";
+        String indexJsp = JSPPath.INDEX_JSP.getValue();
 
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(indexJsp);
         dispatcher.forward(request, response);
