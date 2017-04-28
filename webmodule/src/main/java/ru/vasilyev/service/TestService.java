@@ -47,6 +47,10 @@ public class TestService {
         return stationDao.getAllEntities();
     }
 
+    public List<Station> getStationsByNamePattern(String pattern) {
+        return stationDao.getStationsByNamePattern(pattern);
+    }
+
     public List<RoutesByStationsAndDateView> findTrainsByStationsAndDate(RoutesByStationsAndDateWrapper wrapper) {
         return routeDao.findTrainsByStationsAndDate(wrapper);
     }

@@ -32,6 +32,18 @@ public class StationDao extends AbstractDao<Station> {
         }
     }
 
+    public List<Station> getStationsByNamePattern(String pattern) {
+
+
+        try (SqlSession session = mybatisSessionFactory.getSqlSessionFactory().openSession()) {
+
+            StationMapper trainMapper = session.getMapper(StationMapper.class);
+
+            return trainMapper.getStationsByNamePattern(pattern);
+
+        }
+    }
+
     public void deleteAllEntities() {
 
     }
@@ -47,5 +59,4 @@ public class StationDao extends AbstractDao<Station> {
         }
         return stationID;
     }
-
 }

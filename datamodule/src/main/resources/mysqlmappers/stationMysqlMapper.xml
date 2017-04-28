@@ -22,20 +22,34 @@
     <select id="findStationIdByName"
             statementType="PREPARED"
             parameterType="String"
-            resultType="int" >
-        SELECT
-        s.Id
+            resultType="int">
+        SELECT s.Id
         FROM station s
         WHERE s.Name = #{name};
+    </select>
+
+    <select id="getStationsByNamePattern"
+            statementType="PREPARED"
+            parameterType="String"
+            resultMap="stationsMap">
+
+        SELECT
+            s.Id,
+            s.Name,
+            s.Latitude,
+            s.Longitude
+        FROM station s
+        WHERE s.Name LIKE CONCAT('%', #{pattern}, '%');
+
     </select>
 
     <select id="getAllEntities"
             resultMap="stationsMap">
         SELECT
-        s.Id,
-        s.Name,
-        s.Latitude,
-        s.Longitude
+            s.Id,
+            s.Name,
+            s.Latitude,
+            s.Longitude
         FROM station s;
     </select>
 
