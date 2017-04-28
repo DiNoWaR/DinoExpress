@@ -2,6 +2,7 @@ package ru.vasilyev.servlet;
 
 
 import ru.vasilyev.enums.JSPPath;
+import ru.vasilyev.model.Station;
 import ru.vasilyev.service.TestService;
 
 import javax.inject.Inject;
@@ -11,8 +12,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.List;
 
-public class InputServlet extends HttpServlet {
+public class AjaxServlet extends HttpServlet {
 
     @Inject
     private TestService testService;
@@ -20,6 +22,10 @@ public class InputServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        String pattern = request.getParameter("stationName");
+        List<Station> stations = testService.getStationsByNamePattern(pattern);
+
+        request.setAttribute("stations",stations);
         String indexJsp = JSPPath.INPUT_FIELD_JSP.getValue();
 
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(indexJsp);

@@ -7,14 +7,15 @@
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/inputfield.css"/>
     <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
     <script src="${pageContext.request.contextPath}/js/jquery-3.2.1.min.js"></script>
+    <script src="${pageContext.request.contextPath}/js/ajaxtest.js"></script>
 </head>
 
 <body>
 
 <datalist id="stations">
-    <option>Moscow</option>
-    <option>Saint-Petersbutg</option>
-    <option>Nizniy Novgorod</option>
+    <c:forEach var="station" items="${stations}">
+        <option><c:out value="${station.name}"/></option>
+    </c:forEach>
 </datalist>
 
 
@@ -23,9 +24,8 @@
         <div class="col-xs-5"></div>
         <div class="col-xs-2">
             <div>
-                <form class="form-group-lg">
-                    <input type="text" class="form-control" id="train" list="stations" >
-                </form>
+                <input id="stationInput" type="text" class="form-control" list="stations"
+                       onchange="ajaxAutoComplete()">
             </div>
         </div>
         <div class="col-xs-5"></div>

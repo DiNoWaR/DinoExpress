@@ -19,6 +19,11 @@
         <servlet-class>ru.vasilyev.servlet.InputServlet</servlet-class>
     </servlet>
 
+    <servlet>
+        <servlet-name>ajaxServlet</servlet-name>
+        <servlet-class>ru.vasilyev.servlet.AjaxServlet</servlet-class>
+    </servlet>
+
     <servlet-mapping>
         <servlet-name>testServlet</servlet-name>
         <url-pattern>/index</url-pattern>
@@ -32,6 +37,11 @@
     <servlet-mapping>
         <servlet-name>inputServlet</servlet-name>
         <url-pattern>/input</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>ajaxServlet</servlet-name>
+        <url-pattern>/ajax</url-pattern>
     </servlet-mapping>
 
 </web-app>
