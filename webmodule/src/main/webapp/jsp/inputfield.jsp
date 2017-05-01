@@ -10,9 +10,6 @@
 <body>
 
 <datalist id="stations">
-    <c:forEach var="station" items="${stations}">
-        <option><c:out value="${station.name}"/></option>
-    </c:forEach>
 </datalist>
 
 
@@ -26,6 +23,10 @@
         </div>
         <div class="col-xs-5"></div>
     </div>
+</div>
+
+<div align="center">
+    <button id="speakersButton" type="button" class="btn-lg btn-info" onclick="showSpeakers()">Show Speakers</button>
 </div>
 
 <div id="update">

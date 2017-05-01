@@ -15,11 +15,6 @@
     </servlet>
 
     <servlet>
-        <servlet-name>inputServlet</servlet-name>
-        <servlet-class>ru.vasilyev.servlet.InputServlet</servlet-class>
-    </servlet>
-
-    <servlet>
         <servlet-name>ajaxServlet</servlet-name>
         <servlet-class>ru.vasilyev.servlet.AjaxServlet</servlet-class>
     </servlet>
@@ -32,11 +27,6 @@
     <servlet-mapping>
         <servlet-name>insertServlet</servlet-name>
         <url-pattern>/insertwagons</url-pattern>
-    </servlet-mapping>
-
-    <servlet-mapping>
-        <servlet-name>inputServlet</servlet-name>
-        <url-pattern>/input</url-pattern>
     </servlet-mapping>
 
     <servlet-mapping>
