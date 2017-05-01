@@ -6,7 +6,7 @@ public enum JSPPath {
     INDEX_JSP("/jsp/index.jsp"),
     INPUT_FIELD_JSP("/jsp/inputfield.jsp");
 
-    String value;
+    private String value;
 
 
     JSPPath(String value) {

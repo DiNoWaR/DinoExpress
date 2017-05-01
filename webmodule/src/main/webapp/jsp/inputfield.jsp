@@ -5,9 +5,6 @@
     <title>Title</title>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/bootstrap.min.css"/>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/inputfield.css"/>
-    <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
-    <script src="${pageContext.request.contextPath}/js/jquery-3.2.1.min.js"></script>
-    <script src="${pageContext.request.contextPath}/js/ajaxtest.js"></script>
 </head>
 
 <body>
@@ -24,15 +21,22 @@
         <div class="col-xs-5"></div>
         <div class="col-xs-2">
             <div>
-                <input id="stationInput" type="text" class="form-control" list="stations"
-                       onchange="ajaxAutoComplete()">
+                <input id="stationInput" type="text" class="form-control" list="stations">
             </div>
         </div>
         <div class="col-xs-5"></div>
     </div>
 </div>
 
+<div id="update">
 
+</div>
+
+
+<script src="${pageContext.request.contextPath}/js/jquery-3.2.1.min.js"></script>
+<script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
+<script src="${pageContext.request.contextPath}/js/ajaxtest.js"></script>
 </body>
+
 
 </html>

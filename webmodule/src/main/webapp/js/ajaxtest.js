@@ -1,13 +1,34 @@
-function ajaxAutoComplete() {
+var request = new XMLHttpRequest();
 
-    var stationName = document.getElementById("stationInput").value;
+request.open('GET', 'data.xml');
 
-    var xhttp = new XMLHttpRequest();
 
-    var url = "http://localhost:8080/dinoexpress/ajax";
-    xhttp.open("GET", url, true);
+request.onreadystatechange = function () {
 
-    var param = "stationName=" + stationName;
+    if (request.status === 200 && request.readyState === 4) {
 
-    xhttp.send(param);
-}
+        var modify = document.getElementById("update");
+
+        var items = request.responseXML.getElementsByTagName('name');
+
+        var output = '<ul>';
+
+        for (var i = 0; i < items.length; i++) {
+            output += '<li>' + items[i].firstChild.nodeValue + '</li>';
+        }
+
+        output += '</ul>';
+
+        modify.innerHTML = output;
+        console.log(request);
+        console.log('----------------------');
+        console.log(items);
+    }
+
+};
+
+request.send();
+
+
+
+

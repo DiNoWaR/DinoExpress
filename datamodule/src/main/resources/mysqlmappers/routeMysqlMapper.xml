@@ -8,6 +8,7 @@
             resultType="int"
             statementType="PREPARED"
             parameterType="String">
+
         SELECT r.Id
         FROM route r
         WHERE r.RouteCode = #{routeCode};
@@ -17,6 +18,7 @@
             resultType="rootStationsView"
             statementType="PREPARED"
             parameterType="String">
+
         SELECT
             s1.name AS SourceStation,
             s2.name AS DestStation,
