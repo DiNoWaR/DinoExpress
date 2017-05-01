@@ -26,7 +26,7 @@
 </div>
 
 <div align="center">
-    <button id="speakersButton" type="button" class="btn-lg btn-info" onclick="showSpeakers()">Show Speakers</button>
+    <button id="speakersButton" type="button" class="btn-sm btn-danger" onclick="showSpeakers()">Show Speakers</button>
 </div>
 
 <div id="update">
