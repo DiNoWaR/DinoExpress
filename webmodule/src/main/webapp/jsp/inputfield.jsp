@@ -23,12 +23,12 @@
                 <div class="form-group">
                     <label for="departureStationInput">From</label>
                     <input id="departureStationInput" list="departureStations" type="text" class="form-control"
-                           placeholder="Enter Departure station" onkeyup="loadStationsToInput('departureStations')">
+                           placeholder="Enter Departure station" onkeyup="loadStationsToInput('departureStations','departureStationInput')">
                 </div>
                 <div class="form-group">
                     <label for="arrivalStationInput">To</label>
                     <input id="arrivalStationInput" list="arrivalStations" type="text" class="form-control"
-                           placeholder="Enter Arrival station" onkeyup="loadStationsToInput('arrivalStations')">
+                           placeholder="Enter Arrival station" onkeyup="loadStationsToInput('arrivalStations','arrivalStationInput')">
                 </div>
                 <button type="submit" class="btn btn-default">Submit</button>
             </form>

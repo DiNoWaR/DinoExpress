@@ -1,8 +1,8 @@
-function loadStationsToInput(dataListId) {
+function loadStationsToInput(dataListId, inputFieldId) {
 
     var datalistUpdate = document.getElementById(dataListId);
 
-    var stationSearch = document.getElementById(dataListId).value;
+    var stationSearch = document.getElementById(inputFieldId).value;
 
     var myExp = new RegExp(stationSearch, "i");
 
@@ -19,14 +19,12 @@ function loadStationsToInput(dataListId) {
 
             for (var key in items) {
 
-                if (items[key].name.search(myExp) != -1) {
+                if (items[key].name.search(myExp) != -1 && stationSearch !== '') {
                     output += '<option>' + items[key].name + '</option>';
                 }
             }
-
             datalistUpdate.innerHTML = output;
         }
     };
-
     request.send();
 }
