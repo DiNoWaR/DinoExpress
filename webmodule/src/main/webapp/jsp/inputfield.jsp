@@ -21,12 +21,12 @@
         <div class="col-xs-2">
             <form>
                 <div class="form-group">
-                    <label for="departureStationInput">Departure</label>
+                    <label for="departureStationInput">From</label>
                     <input id="departureStationInput" list="departureStations" type="text" class="form-control"
                            placeholder="Enter Departure station" onkeyup="loadStationsToInput('departureStations')">
                 </div>
                 <div class="form-group">
-                    <label for="arrivalStationInput">Arrival</label>
+                    <label for="arrivalStationInput">To</label>
                     <input id="arrivalStationInput" list="arrivalStations" type="text" class="form-control"
                            placeholder="Enter Arrival station" onkeyup="loadStationsToInput('arrivalStations')">
                 </div>
