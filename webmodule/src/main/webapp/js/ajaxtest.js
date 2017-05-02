@@ -4,24 +4,24 @@ function loadStationsToInput(dataListId) {
 
     request.open('GET', 'stations.json');
 
-    var stations = JSON.parse(request.responseText);
-
     request.onreadystatechange = function () {
 
         if (request.status === 200 && request.readyState === 4) {
+
+            var items = JSON.parse(request.responseText);
 
             var modify = document.getElementById(dataListId);
 
             var output = '';
 
-            for (var i = 0; i < stations.length; i++) {
-                output += '<option>' + 'opop' + '</option>';
+            for (var key in items) {
+                output += '<option>' + items[key].name + '</option>';
             }
 
             modify.innerHTML = output;
         }
     };
-    console.log(stations);
+
     request.send();
 }
 
