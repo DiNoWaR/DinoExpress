@@ -1,0 +1,20 @@
+[
+  {
+    "name": "Moscow",
+    "latitude": 55.755,
+    "longitude": 37.617,
+    "id": 1
+  },
+  {
+    "name": "Saint-Petersburg",
+    "latitude": 59.934,
+    "longitude": 30.335,
+    "id": 2
+  },
+  {
+    "name": "Nizniy Novgorod",
+    "latitude": 56.296,
+    "longitude": 43.936,
+    "id": 3
+  }
+]

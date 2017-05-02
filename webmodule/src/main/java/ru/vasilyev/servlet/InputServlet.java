@@ -15,6 +15,7 @@ public class InputServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+
         String indexJsp = JSPPath.INPUT_FIELD_JSP.getValue();
 
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(indexJsp);

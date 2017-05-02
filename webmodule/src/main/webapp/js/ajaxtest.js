@@ -1,34 +1,32 @@
-function showSpeakers() {
+function loadStationsToInput(dataListId) {
 
     var request = new XMLHttpRequest();
 
-    request.open('GET', 'data.xml');
+    request.open('GET', 'stations.json');
+
+    var returnedData = JSON.parse(request.responseText);
 
     request.onreadystatechange = function () {
 
+
         if (request.status === 200 && request.readyState === 4) {
 
-            var modify = document.getElementById("update");
+            var modify = document.getElementById(dataListId);
 
-            var items = request.responseXML.getElementsByTagName('name');
+            var output = '';
 
-            var output = '<ul>';
+            var stations = ['Moscow','Saint-Petersburg','Nizniy Novgorod'];
 
-            for (var i = 0; i < items.length; i++) {
-                output += '<li>' + items[i].firstChild.nodeValue + '</li>';
+            for (var i = 0; i < stations.length; i++) {
+                output += '<option>' + stations[i] + '</option>';
             }
 
-            output += '</ul>';
-
             modify.innerHTML = output;
-            console.log(request);
-            console.log('----------------------');
-            console.log(items);
         }
-
     };
 
     request.send();
+    console.log(returnedData);
 }
 
 

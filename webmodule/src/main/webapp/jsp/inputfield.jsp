@@ -9,30 +9,33 @@
 
 <body>
 
-<datalist id="stations">
+<datalist id="departureStations">
 </datalist>
 
+<datalist id="arrivalStations">
+</datalist>
 
 <div class="container-fluid">
     <div id="stationInputRow" class="row">
         <div class="col-xs-5"></div>
         <div class="col-xs-2">
-            <div>
-                <input id="stationInput" type="text" class="form-control" list="stations">
-            </div>
+            <form>
+                <div class="form-group">
+                    <label for="departureStationInput">Departure</label>
+                    <input id="departureStationInput" list="departureStations" type="text" class="form-control"
+                           placeholder="Enter Departure station" onkeyup="loadStationsToInput('departureStations')">
+                </div>
+                <div class="form-group">
+                    <label for="arrivalStationInput">Arrival</label>
+                    <input id="arrivalStationInput" list="arrivalStations" type="text" class="form-control"
+                           placeholder="Enter Arrival station" onkeyup="loadStationsToInput('arrivalStations')">
+                </div>
+                <button type="submit" class="btn btn-default">Submit</button>
+            </form>
         </div>
         <div class="col-xs-5"></div>
     </div>
 </div>
-
-<div align="center">
-    <button id="speakersButton" type="button" class="btn-sm btn-danger" onclick="showSpeakers()">Show Speakers</button>
-</div>
-
-<div id="update">
-
-</div>
-
 
 <script src="${pageContext.request.contextPath}/js/jquery-3.2.1.min.js"></script>
 <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
