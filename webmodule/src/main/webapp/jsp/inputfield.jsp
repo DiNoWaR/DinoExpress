@@ -17,23 +17,20 @@
 
 <div class="container-fluid">
     <div id="stationInputRow" class="row">
-        <div class="col-xs-5"></div>
         <div class="col-xs-2">
             <form>
                 <div class="form-group">
-                    <label for="departureStationInput">From</label>
                     <input id="departureStationInput" list="departureStations" type="text" class="form-control"
-                           placeholder="Enter Departure station" onkeyup="loadStationsToInput('departureStations','departureStationInput')">
+                           placeholder="Enter departure station" onkeyup="loadStationsToInput('departureStations','departureStationInput')">
                 </div>
                 <div class="form-group">
-                    <label for="arrivalStationInput">To</label>
                     <input id="arrivalStationInput" list="arrivalStations" type="text" class="form-control"
-                           placeholder="Enter Arrival station" onkeyup="loadStationsToInput('arrivalStations','arrivalStationInput')">
+                           placeholder="Enter arrival station" onkeyup="loadStationsToInput('arrivalStations','arrivalStationInput')">
                 </div>
-                <button type="submit" class="btn btn-default">Submit</button>
+                <button type="submit" class="btn btn-warning">Submit</button>
             </form>
         </div>
-        <div class="col-xs-5"></div>
+        <div class="col-xs-10"></div>
     </div>
 </div>
 
