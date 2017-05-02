@@ -1,62 +1,50 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<html lang="en">
+<html>
 <head>
-    <title>Home</title>
-    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/test.css"/>
+    <title>Title</title>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/bootstrap.min.css"/>
-    <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
-    <script src="${pageContext.request.contextPath}/js/jquery-3.2.1.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/inputfield.css"/>
 </head>
 
 <body>
 
-<div id="greeting">
-    <h1>${greetings}</h1>
+<datalist id="departureStations">
+</datalist>
+
+<datalist id="arrivalStations">
+</datalist>
+
+<div class="container-fluid">
+    <div id="header" class="row">
+
+    </div>
+    <div id="stationInputRow" class="row">
+        <div class="col-xs-2">
+            <form>
+                <div class="form-group">
+                    <input id="departureStationInput" list="departureStations" type="text" class="form-control"
+                           placeholder="Enter departure station" onkeyup="loadStationsToInput('departureStations','departureStationInput')">
+                </div>
+                <div class="form-group">
+                    <input id="arrivalStationInput" list="arrivalStations" type="text" class="form-control"
+                           placeholder="Enter arrival station" onkeyup="loadStationsToInput('arrivalStations','arrivalStationInput')">
+                </div>
+                <div class="form-group">
+                    <input id="journeyDate" type="date" class="form-control"
+                           placeholder="Enter journey date">
+                </div>
+                <button type="submit" class="btn btn-warning">Submit</button>
+            </form>
+        </div>
+        <div class="col-xs-10"></div>
+    </div>
 </div>
 
-
-<form class="form-horizontal">
-    <div class="form-group">
-        <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
-        <div class="col-sm-10">
-            <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
-        </div>
-    </div>
-    <div class="form-group">
-        <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
-        <div class="col-sm-10">
-            <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
-        </div>
-    </div>
-    <div class="form-group">
-        <div class="col-sm-offset-2 col-sm-10">
-            <div class="checkbox">
-                <label>
-                    <input type="checkbox"> Remember me
-                </label>
-            </div>
-        </div>
-    </div>
-    <div class="form-group">
-        <div class="col-sm-offset-2 col-sm-10">
-            <button type="submit" class="btn btn-info">Sign in</button>
-        </div>
-    </div>
-</form>
-
-<div id="trainResults">
-    <c:forEach var="route" items="${routes}">
-        <c:out value="${route.routeCode}"/>
-        <c:out value="${route.srcStation}"/>
-        <c:out value="${route.destStation}"/>
-        <c:out value="${route.departureDate}"/>
-        <c:out value="${route.arrivalDate}"/>
-        <c:out value="${route.srcSequence}"/>
-        <c:out value="${route.destSequence}"/>
-    </c:forEach>
-</div>
-
+<script src="${pageContext.request.contextPath}/js/jquery-3.2.1.min.js"></script>
+<script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
+<script src="${pageContext.request.contextPath}/js/ajaxtest.js"></script>
 </body>
+
 
 </html>

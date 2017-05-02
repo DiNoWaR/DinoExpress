@@ -1,11 +1,16 @@
+#header {
+    height: 100px;
+    background-color: #ffb44e;
+}
+
 #stationInputRow {
-    margin-top: 4%;
+    margin-top: 3%;
 }
 
 .container-fluid {
-    margin: 2%;
+    margin: 1%;
 }
 
-#departureStationInput, #arrivalStationInput {
+#departureStationInput, #arrivalStationInput, #journeyDate {
     width: 180px;
 }

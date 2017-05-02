@@ -5,25 +5,14 @@
          version="3.1">
 
     <servlet>
-        <servlet-name>testServlet</servlet-name>
-        <servlet-class>ru.vasilyev.servlet.TestServlet</servlet-class>
-    </servlet>
-
-    <servlet>
         <servlet-name>insertServlet</servlet-name>
         <servlet-class>ru.vasilyev.servlet.TestInsertServlet</servlet-class>
     </servlet>
 
     <servlet>
-        <servlet-name>inputServlet</servlet-name>
-        <servlet-class>ru.vasilyev.servlet.InputServlet</servlet-class>
+        <servlet-name>homeServlet</servlet-name>
+        <servlet-class>ru.vasilyev.servlet.HomeServlet</servlet-class>
     </servlet>
-
-
-    <servlet-mapping>
-        <servlet-name>testServlet</servlet-name>
-        <url-pattern>/index</url-pattern>
-    </servlet-mapping>
 
     <servlet-mapping>
         <servlet-name>insertServlet</servlet-name>
@@ -31,8 +20,8 @@
     </servlet-mapping>
 
     <servlet-mapping>
-        <servlet-name>inputServlet</servlet-name>
-        <url-pattern>/input</url-pattern>
+        <servlet-name>homeServlet</servlet-name>
+        <url-pattern>/home</url-pattern>
     </servlet-mapping>
 
 </web-app>

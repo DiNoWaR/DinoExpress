@@ -10,13 +10,13 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 
-public class InputServlet extends HttpServlet {
+public class HomeServlet extends HttpServlet {
 
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 
-        String indexJsp = JSPPath.INPUT_FIELD_JSP.getValue();
+        String indexJsp = JSPPath.INDEX_JSP.getValue();
 
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(indexJsp);
         dispatcher.forward(request, response);
