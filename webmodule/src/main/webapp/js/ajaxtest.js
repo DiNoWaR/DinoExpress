@@ -4,10 +4,9 @@ function loadStationsToInput(dataListId) {
 
     request.open('GET', 'stations.json');
 
-    var returnedData = JSON.parse(request.responseText);
+    var stations = JSON.parse(request.responseText);
 
     request.onreadystatechange = function () {
-
 
         if (request.status === 200 && request.readyState === 4) {
 
@@ -15,18 +14,15 @@ function loadStationsToInput(dataListId) {
 
             var output = '';
 
-            var stations = ['Moscow','Saint-Petersburg','Nizniy Novgorod'];
-
             for (var i = 0; i < stations.length; i++) {
-                output += '<option>' + stations[i] + '</option>';
+                output += '<option>' + 'opop' + '</option>';
             }
 
             modify.innerHTML = output;
         }
     };
-
+    console.log(stations);
     request.send();
-    console.log(returnedData);
 }
 
 
