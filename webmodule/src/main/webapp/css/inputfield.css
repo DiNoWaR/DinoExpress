@@ -14,3 +14,7 @@
 #departureStationInput, #arrivalStationInput, #journeyDate {
     width: 180px;
 }
+
+#testAjaxRow {
+    align-self: center;
+}

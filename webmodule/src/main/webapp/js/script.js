@@ -19,12 +19,31 @@ function loadStationsToInput(dataListId, inputFieldId) {
 
             for (var key in items) {
 
-                if (items[key].name.search(myExp) != -1 && stationSearch !== '') {
+                if (items[key].name.search(myExp) !== -1 && stationSearch !== '') {
                     output += '<option>' + items[key].name + '</option>';
                 }
             }
             datalistUpdate.innerHTML = output;
         }
+    };
+    request.send();
+}
+
+function testAjaxServlet() {
+
+    var firstLetter = document.getElementById('testAjaxServlet').value;
+
+    var url = 'ajax?letter=' + firstLetter;
+
+    var request = new XMLHttpRequest();
+    request.open('GET', url);
+
+    request.onreadystatechange = function () {
+
+        if (request.status === 200 && request.readyState === 4) {
+            console.log(request.responseText);
+        }
+
     };
     request.send();
 }
